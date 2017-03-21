@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[第二章新的结构标签和属性]]></title>
+      <url>%2F2017%2F03%2F18%2FHTML5-CSS-2%2F</url>
+      <content type="text"><![CDATA[##HTML5和CSS3学习笔记 ####1.新的结构标签和属性| 结构标签 | 用法 || :—–| :—– || | 定义页面或区段的头部 || | 定义页面或者区段的尾部 || | 定义页面或者区段的导航区域 || | 定义页面的逻辑区域或内容组合 || | 定义正文或一片完整的内容 || | 定义补充或相关内容 || | 描述指定范围内的数值 || | 用于显示实时进度的控件 || 自定义的数据属性 | 允许通过“data-”前缀向任意元素中添加自定义的数据属性 | ####2.实例：用语义化标记重新定义博客12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;header id=&quot;page_header&quot;&gt; &lt;h1&gt;Hello World!&lt;/h1&gt; &lt;nav&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Articles&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About me&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact me&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/nav&gt; &lt;/header&gt; &lt;section id=&quot;posts&quot;&gt; &lt;article class=&quot;post&quot;&gt; &lt;header id=&quot;section_header&quot;&gt; &lt;h2&gt;Welcome to my blog!&lt;/h2&gt; &lt;p&gt;Posted by GuoRuiyang on &lt;time datetime=&quot;2017-03-18T16:27&quot;&gt;March 18st, 2017 at 4:27PM&lt;/time&gt;&lt;/p&gt; &lt;/header&gt; &lt;aside&gt; &lt;p&gt;&amp;quot;Never give someone a chance to say no when you selling your product.&amp;quot;&lt;/p&gt; &lt;/aside&gt; &lt;P&gt; Life is full of confusing and disordering Particular time,a particular location,Do the arranged thing of ten million time in the brain,Step by step ,the life is hard to avoid delicacy and stiffness No enthusiasm forever,No unexpected happening of surprising and pleasing So,only silently ask myself in mind Next happiness,when will come? &lt;P&gt; &lt;P&gt; Then the wandering soul wild crane stands still the memory river Listen to whistle play tightly ring slowly,Water rises a ship to go medium long things of the past.Wait for a ship’s person Wait for one and other,But hesitate always should ascend which ship Missed Had to consign the hope to next time,Finally what to wait for until has no boats and ships to come and go,Sunset west . &lt;/P&gt; &lt;footer id=&quot;article_footer&quot;&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;i&gt;25 comments&lt;/i&gt;&lt;/a&gt;.....&lt;/p&gt;&lt;/footer&gt; &lt;/article&gt; &lt;footer&gt;&lt;/footer&gt; &lt;/section&gt; &lt;section id=&quot;sidebar&quot;&gt; &lt;header&gt;&lt;h3&gt;Archives&lt;/h3&gt;&lt;/header&gt; &lt;nav&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Articles&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About me&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact me&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/nav&gt; &lt;/section&gt; &lt;footer id=&quot;page_footer&quot;&gt; &lt;p&gt;@copy;2017GuoRuiyang.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Articles&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About me&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact me&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/footer&gt;&lt;/body&gt;&lt;/html&gt;]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2017%2F03%2F15%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[欢迎来到我的博客，在我花费了（牺牲了）我两个晚上的打游戏的时间，把自己的博客网站给搭建起来了。我是一名程序猿，所以从Hello World!开始。我的博客里会更新自己的一些学习笔记和一些原创的个人文章，希望给大家呢带来知识和快乐。 &gt; 如果智慧与美貌不能并存，那我算什么。 *沃.兹季硕德*]]></content>
+    </entry>
+
+    
+  
+  
+</search>
