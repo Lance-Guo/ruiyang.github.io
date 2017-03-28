@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[第四章CSS3使用]]></title>
+      <url>%2F2017%2F03%2F25%2FHTML5-CSS-4%2F</url>
+      <content type="text"><![CDATA[HTML5和CSS3学习笔记CSS特性：| 特性 | 用法 || :—- | :—- || :nth-of-type | [p:nth-of-type(2n+1){color: red;}] || first-child | [p:first-child{color:blue;}] || nth-child | [p:nth-child(2n+1){color:red}] || last-child | [p:last-child{color:blue;}] || nth-last-child | [p:nth-last-child(2n+1){color:red}] || first-of-type | [p:first-of-type{color:blue}] || last-of-type | [p:last-of-type{color:blue}] || :after | 与content一起使用，在指定元素后加内容 || 对列的支持 | 将内容区域分成多列 || 媒体查询 | 基于设备设置应用样式 | 实例：1.优化的付款清单2.多列布局3.使用媒体查询构建移动设备界面]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[第三章创建易用的web表单]]></title>
       <url>%2F2017%2F03%2F21%2FHTML5-CSS-3%2F</url>
       <content type="text"><![CDATA[HTML5和CSS3学习笔记常用的表单输入域： 类型 用法 &lt;input type=”email”&gt; 显示一个输入邮件地址的表单域 &lt;input type=”url”&gt; 显示一个输入URL的表单域 &lt;input type=”tel”&gt; 显示一个输入电话号码的表单域 &lt;input type=”search”&gt; 显示一个输入搜索关键字的表单域 &lt;input type=”range”&gt; 显示一个滑块组件 &lt;input type=”number”&gt; 显示一个输入数值的表单域 &lt;input type=”date”&gt; 显示用于日期选择的表单域 &lt;input type=”datetime”&gt; 显示用于日期选择和时间选择的表单域 &lt;input type=”text” autofocus&gt; 支持将焦点置于特定的表单元素上 &lt;input type=”email” placeholder=”me@example.com”&gt; 在表单中显示占位文本 &lt;p contenteditable&gt;lorem ipsum&lt;/p&gt; 支持通过浏览器在位编辑内容 实例 实例1 基础表单 实例2 注册表单(含有动态验证码)]]></content>
