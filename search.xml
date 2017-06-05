@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[第四章CSS3使用]]></title>
       <url>%2F2017%2F03%2F25%2FHTML5-CSS-4%2F</url>
-      <content type="text"><![CDATA[HTML5和CSS3学习笔记####CSS特性：| 特性 | 用法 || :—– | :—– || nth-of-type | [p:nth-of-type(2n+1){color: red;}] || first-child | [p:first-child{color:blue;}] || nth-child | [p:nth-child(2n+1){color:red}] || last-child | [p:last-child{color:blue;}] || nth-last-child | [p:nth-last-child(2n+1){color:red}] || first-of-type | [p:first-of-type{color:blue}] || last-of-type | [p:last-of-type{color:blue}] || after | 与content一起使用，在指定元素后加内容 || 对列的支持 | 将内容区域分成多列 || 媒体查询 | 基于设备设置应用样式 | 实例：1.优化的付款清单2.多列布局3.使用媒体查询构建移动设备界面]]></content>
+      <content type="text"><![CDATA[HTML5和CSS3学习笔记####CSS特性：| 特性 | 用法 || —– | —–: || nth-of-type | [p:nth-of-type(2n+1){color: red;}] || first-child | [p:first-child{color:blue;}] || nth-child | [p:nth-child(2n+1){color:red}] || last-child | [p:last-child{color:blue;}] || nth-last-child | [p:nth-last-child(2n+1){color:red}] || first-of-type | [p:first-of-type{color:blue}] || last-of-type | [p:last-of-type{color:blue}] || after | 与content一起使用，在指定元素后加内容 || 对列的支持 | 将内容区域分成多列 || 媒体查询 | 基于设备设置应用样式 | 实例：1.优化的付款清单2.多列布局3.使用媒体查询构建移动设备界面]]></content>
     </entry>
 
     
