@@ -106,7 +106,7 @@
 3.ES6 15年六月发布
 快速入门1.将代码放到网页的任何地方，用&amp;lt;script&amp;gt; … &amp;lt;/script&amp;gt;包含JavaScript的代码
 2.将JS代码放在单独的JS文件中，&amp;lt;script">
-<meta property="og:updated_time" content="2017-08-04T07:26:24.245Z">
+<meta property="og:updated_time" content="2017-08-04T07:30:35.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="廖雪峰JS学习笔记">
 <meta name="twitter:description" content="javaScript廖雪峰学习网站笔记JavaScript 发展历程：1.网景公司95年发布JavaScript
@@ -407,24 +407,24 @@
 2.将JS代码放在单独的JS文件中，&lt;script src=“”&gt; … &lt;/script&gt;引入文件
 3.JS区分大小写
 </code></pre><h3 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h3><pre><code>number；字符串：’abc’ “abc”;布尔值；&amp;&amp; ；||；！；
-* 1.== 和=== ；==会先进行数据类型的转换，===数据类型不同直接返回false，尽量使用===
-* 2.NaN与所有值都不相等，包括他自己
+1.== 和=== ；==会先进行数据类型的转换，===数据类型不同直接返回false，尽量使用===
+2.NaN与所有值都不相等，包括他自己
 NaN === NaN; //false
 isNaN(NaN); //true
-* 3.浮点数的比较，通过差值的绝对值小于某个阀值
-* 4.null和undefined
-* 5.数组，对象，变量：变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。
-* 6.不用var申明的都是全局变量，var申明的是局部变量，范围别限制在该变量神明的函数题内
-* 7.使用严格模式：’use strict’
-</code></pre><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><pre><code>* 1.转义符\：\n表示换行，\t表示制表符，\\表示\自身
+3.浮点数的比较，通过差值的绝对值小于某个阀值
+4.null和undefined
+5.数组，对象，变量：变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。
+6.不用var申明的都是全局变量，var申明的是局部变量，范围别限制在该变量神明的函数题内
+7.使用严格模式：’use strict’
+</code></pre><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><pre><code>1.转义符\：\n表示换行，\t表示制表符，\\表示\自身
     ASCII字符用\x##形式的十六进制表示 ‘\x41’ //等同于’A’
     Unicode字符用\u###表示： ‘\u4e2d\u6587’ //等同于’中文’
-* 2.多行字符串用\n表示费事，ES6新的字符串的表示方法：
+2.多行字符串用\n表示费事，ES6新的字符串的表示方法：
     反引号` … `表示
-* 3.使用+比较麻烦，ES6新增模板字符串，表示方法和上边一样，用` … `包起来
+3.使用+比较麻烦，ES6新增模板字符串，表示方法和上边一样，用` … `包起来
     如： var message = `你好, ${name}, 你今年${age}岁了!`;
-</code></pre><h3 id="字符串的操作：var-s-“Hello-World-”-详见’JS字符串操作’文档"><a href="#字符串的操作：var-s-“Hello-World-”-详见’JS字符串操作’文档" class="headerlink" title="字符串的操作：var s = “Hello World!”;详见’JS字符串操作’文档"></a>字符串的操作：var s = “Hello World!”;详见’JS字符串操作’文档</h3><pre><code>* 1.s.length取长度,s[0];//‘h’,需要注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会产生错误但是也不会产生结果
-* 2.JavaScript为字符串提供了一些常用方法，注意，调用这些方法本身不会改变原有字符串的内容，而是返回一个新字符串：
+</code></pre><h3 id="字符串的操作：var-s-“Hello-World-”-详见’JS字符串操作’文档"><a href="#字符串的操作：var-s-“Hello-World-”-详见’JS字符串操作’文档" class="headerlink" title="字符串的操作：var s = “Hello World!”;详见’JS字符串操作’文档"></a>字符串的操作：var s = “Hello World!”;详见’JS字符串操作’文档</h3><pre><code>1.s.length取长度,s[0];//‘h’,需要注意的是，字符串是不可变的，如果对字符串的某个索引赋值，不会产生错误但是也不会产生结果
+2.JavaScript为字符串提供了一些常用方法，注意，调用这些方法本身不会改变原有字符串的内容，而是返回一个新字符串：
     * toUpperCase()把一个字符串全部转换成大写；
     * toLowerCase()把一个字符串全部转换成小写；
     * indexOf(str)从首位检索指定字符串出现的位置；没有返回-1
