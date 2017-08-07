@@ -108,7 +108,7 @@ navigator 对象表示浏览器的信息，常用的属性：navigator.appName: 
 navigator.appVersion:">
 <meta property="og:image" content="http://guoruiyang.cn/img/ajax.png">
 <meta property="og:image" content="http://guoruiyang.cn/img/promise.png">
-<meta property="og:updated_time" content="2017-08-07T01:32:17.945Z">
+<meta property="og:updated_time" content="2017-08-07T01:39:12.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="廖雪峰JS学习笔记2">
 <meta name="twitter:description" content="浏览器对象Windowwindow对象不仅充当全局作用域，并表示浏览器窗口
@@ -455,8 +455,30 @@ children属性是一个只读属性，并且它在子节点变化时会时时更
     * 2.浏览器默认点击&lt;button type = “submit”&gt;时提交表单，或者是在最后一个输入键按回车，因此可以通过相应&lt;form&gt;本身的onsubmit事件。onsubmit = “return checkForm()”
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt; form id = “login=form” methon = “post” onsubmit = “return checkForm()”&gt;</div><div class="line">		&lt;input type = “text” id = “username” name = “username”&gt;</div><div class="line">		&lt;input type = “password” id = “input-password”&gt;</div><div class="line">		&lt;input type = “hidden” id = “md5-password&quot; name = “password”&gt;</div><div class="line">		&lt;button type = “submit”&gt;Submit&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> 	function checkForm() &#123;</div><div class="line">		var input_pwd = document.getElementById(‘input-password’);</div><div class="line">		var md5_pwd = document.getElementById(‘md5-password’);</div><div class="line">		md5_pwd.value = toMD5(input_pwd.vaule);</div><div class="line">		return true; </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <pre><code>Type为hidden用户不可见， 同时因为设置了name属性的&lt;input&gt;的数据会被提交，没有name属性的就不会被提交。
-</code></pre><h3 id="操作文件"><a href="#操作文件" class="headerlink" title="操作文件"></a>操作文件</h3><h4 id="上传文件的唯一控件"><a href="#上传文件的唯一控件" class="headerlink" title="上传文件的唯一控件 "></a>上传文件的唯一控件 <figure class="highlight plain"><figcaption><span>type = “file”> ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    ** 注意： 当一个表单包含``` &lt;input type = “file”&gt; ```时，表单的enctype必须制定为multipart/form-data, method必须指定为post， 浏览器才能正确的编码并且以multipart/form-data格式发送表单数据 **</div><div class="line">    浏览器只允许选择本地文件因此不能通过改变value的方式来改变文件路径，也不能获得文件的真实路径</div><div class="line">    </div><div class="line">#### File API </div><div class="line">    新增的file API  允许JS获取文件内容，H65新增的File API主要有File和FIleReader两个主要对象</div><div class="line">    </div><div class="line">### AJAX</div><div class="line">    AJAX并不是JS的规范， 他是Asynchronous JavaScript and XML 意识就是用JS执异步网络请求。</div><div class="line">    Web 运作原理： 一次HTTP请求对应一个页面</div><div class="line">    而AJAX请求时异步的，要通过回调函数获得响应</div><div class="line">    现在浏览器上写AJAX主要依靠XMLHttpRequest对象</div><div class="line">    var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象</div><div class="line">    Request.onreadystatechange = function()</div><div class="line">     &#123; 状态发生变化时， 函数被回调 &#125;</div><div class="line">    低版本的IE使用ActiveXObject对象</div><div class="line">    Var request = new ActiveXObject(‘Microsoft.XMLHTTP’);</div><div class="line">    通用：</div></pre></td></tr></table></figure></h4><p>var request;<br>if (window.XMLHttpRequest) {<br>    request = new XMLHttpRequest();<br>} else {<br>    request = new ActiveXObjext(‘Microsoft.XMLHTTP’); // 针对低版本IE<br>}<br>```<br>    创建对象后，首先设置onreadystatechange的回调函数，在回调函数中通过你readyState === 4 来判断是否完成， 在根据status === 200 判断是否是一个成功的响应。<br>    XMLHttpRequest对象三个重要属性：<br>    | 属性      | 描述          |<br>    | :———— |:————|<br>    |onreadystatechange     | 每当readyState属性变化时调用的函数 |<br>    | readyState     | 存有XMLHttpRequest的状态， 从0 到 4 变化   |<br>    | status     | 两个值200 404   |<br>        0： 请求未初始化<br>        1： 服务器连接已建立<br>        2： 请求已接收<br>        3： 请求处理中<br>        4： 请求已完成，且响应就绪<br>        200： “OK”<br>        404: 未找到页面<br>    如果需要将请求发送到服务器，要使用XMLHttpRequest对象的open()和send()方法</p>
-<pre><code>    - open(methon, url, async) 方法规定了请求的类型，URL，和是否异步
+</code></pre><h3 id="操作文件"><a href="#操作文件" class="headerlink" title="操作文件"></a>操作文件</h3><h4 id="上传文件的唯一控件"><a href="#上传文件的唯一控件" class="headerlink" title="上传文件的唯一控件 "></a>上传文件的唯一控件 <figure class="highlight plain"><figcaption><span>type = “file”> ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    ** 注意： 当一个表单包含``` &lt;input type = “file”&gt; ```时，表单的enctype必须制定为multipart/form-data, method必须指定为post， 浏览器才能正确的编码并且以multipart/form-data格式发送表单数据 **</div><div class="line">    浏览器只允许选择本地文件因此不能通过改变value的方式来改变文件路径，也不能获得文件的真实路径</div><div class="line">    </div><div class="line">#### File API </div><div class="line">    新增的file API  允许JS获取文件内容，H65新增的File API主要有File和FIleReader两个主要对象</div><div class="line">    </div><div class="line">### AJAX</div><div class="line">    AJAX并不是JS的规范， 他是Asynchronous JavaScript and XML 意识就是用JS执异步网络请求。</div><div class="line">    Web 运作原理： 一次HTTP请求对应一个页面</div><div class="line">    而AJAX请求时异步的，要通过回调函数获得响应</div><div class="line">    现在浏览器上写AJAX主要依靠XMLHttpRequest对象</div><div class="line">    var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象</div><div class="line">    Request.onreadystatechange = function()</div><div class="line">     &#123; 状态发生变化时， 函数被回调 &#125;</div><div class="line">    低版本的IE使用ActiveXObject对象</div><div class="line">    Var request = new ActiveXObject(‘Microsoft.XMLHTTP’);</div><div class="line">    通用：</div></pre></td></tr></table></figure></h4><pre><code>var request;
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+} else {
+    request = new ActiveXObjext(&apos;Microsoft.XMLHTTP&apos;); // 针对低版本IE
+}
+
+```
+创建对象后，首先设置onreadystatechange的回调函数，在回调函数中通过你readyState === 4 来判断是否完成， 在根据status === 200 判断是否是一个成功的响应。
+XMLHttpRequest对象三个重要属性：
+| 属性 | 描述 | 
+| :----- | :----- | 
+|onreadystatechange | 每当readyState属性变化时调用的函数 | 
+| readyState | 存有XMLHttpRequest的状态， 从0 到 4 变化 |  
+| status | 两个值200 404 |  
+    0： 请求未初始化
+    1： 服务器连接已建立
+    2： 请求已接收
+    3： 请求处理中
+    4： 请求已完成，且响应就绪
+    200： “OK”
+    404: 未找到页面
+如果需要将请求发送到服务器，要使用XMLHttpRequest对象的open()和send()方法
+    - open(methon, url, async) 方法规定了请求的类型，URL，和是否异步
 XMLHttpRequest对象的open()方法有三个参数，第一个参数指定是GET还是POST， 第二个参数指定URL地址， 第三个参数指定是否使用异步，默认为true, 所以不写
 Async = true时才有onreadystatechange函数，为false时直接把代码放到send()方法后即可（参考W3AJAX）
 </code></pre><h4 id="GET和POST的区别："><a href="#GET和POST的区别：" class="headerlink" title="GET和POST的区别："></a>GET和POST的区别：</h4><pre><code>与POST相比， GET更简单也更快，并且在大多数下都能用，例外在以下场景用POST：
@@ -465,10 +487,10 @@ Async = true时才有onreadystatechange函数，为false时直接把代码放到
     3. 发送包含未知字符的用户输入时， POST比GET更稳定和更可靠
     - send(string) 将请求发送到服务器， string仅用于POST请求
 </code></pre><h4 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h4><pre><code>获得服务器的响应，使用XMLHttpRequest对象的responseText和responseXML属性
-| 属性      | 描述          | 
-| :------------- |:------------| 
-| responseText      | 获得字符串形式的响应数据 | 
-| responseXML     | 获得XML形式的响应数据   |  
+| 属性 | 描述 | 
+| :----- | :----- | 
+| responseText | 获得字符串形式的响应数据 | 
+| responseXML | 获得XML形式的响应数据 |  
 </code></pre><h3 id="安全限制"><a href="#安全限制" class="headerlink" title="安全限制"></a>安全限制</h3><pre><code>由于浏览器的同源策略，JS在发送AJAX请求时，URL的域名必须和当前的页面完全一致：域名要一致，协议要相同(http和https不同), 端口号要相同
 JS有大致三种方式去请求域外的URL
 1. 通过Flash插件发送HTTP请求，已经快被淘汰
