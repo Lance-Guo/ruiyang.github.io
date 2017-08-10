@@ -142,7 +142,7 @@ nth-child
 
 last-child
 [p:last-child{color:b">
-<meta property="og:updated_time" content="2017-08-10T08:25:54.031Z">
+<meta property="og:updated_time" content="2017-08-10T08:47:20.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四章CSS3使用">
 <meta name="twitter:description" content="HTML5和CSS3学习笔记CSS特性：
@@ -454,7 +454,7 @@ last-child
       
 
       
-        <h2 id="HTML5和CSS3学习笔记"><a href="#HTML5和CSS3学习笔记" class="headerlink" title="HTML5和CSS3学习笔记"></a>HTML5和CSS3学习笔记</h2><h4 id="CSS特性："><a href="#CSS特性：" class="headerlink" title="CSS特性："></a>CSS特性：</h4><table>
+        <h3 id="HTML5和CSS3学习笔记"><a href="#HTML5和CSS3学习笔记" class="headerlink" title="HTML5和CSS3学习笔记"></a>HTML5和CSS3学习笔记</h3><h3 id="CSS特性："><a href="#CSS特性：" class="headerlink" title="CSS特性："></a>CSS特性：</h3><table>
 <thead>
 <tr>
 <th style="text-align:left">特性</th>
@@ -504,7 +504,10 @@ last-child
 </tr>
 </tbody>
 </table>
-<p>实例：<br>1.优化的<a href="https://lance-guo.github.io/payForm/" target="_blank" rel="external">付款清单</a><br>2.<a href="">多列布局</a><br>3.使用媒体查询构建<a href="">移动设备界面</a></p>
+<h4 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h4><p># content{<br>    column-count: 2;<br>    -moz-column-count: 2;<br>    -webkit-column-count: 2;<br>    column-gap: 20px;<br>    -moz-column-gap: 20px;<br>    -webkit-column-gap: 20px;<br>    column-rule: 1px solid #ddccb5;<br>    -moz-column-rule: 1px solid #ddccb5;<br>    -webkit-column-rule: 1px solid #ddccb5;<br>}</p>
+<h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><p>CSS3的媒体查询允许开发人员根据方可的屏幕尺寸大小来调整整个页面的渲染效果，媒体查询可以查询一下内容：<br>分辨率，方向，设备的宽高，浏览器窗口的宽高 如：<br>在样式表结束添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@media only screen and (max-device-width: 480px) &#123;</div><div class="line">    body&#123;</div><div class="line">        width: 460px;</div><div class="line">    &#125;</div><div class="line">    section#sidebar, section#posts&#123;</div><div class="line">        float: none;</div><div class="line">        width: 100%;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>也可以在关联样式表时，使用媒体查询，然后将移动设备的样式表放入单独的文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel = &quot;stylesheet&quot; type = &quot;text/css&quot; href = &quot;CSS/monile.css&quot; media = &quot;only screen and (max-device-width: 480px)&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>实例：<br>1.优化的<a href="https://lance-guo.github.io/payForm/" target="_blank" rel="external">付款清单</a></p>
 
       
     </div>
@@ -716,7 +719,7 @@ last-child
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5和CSS3学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5和CSS3学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS特性："><span class="nav-number">1.0.1.</span> <span class="nav-text">CSS特性：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5和CSS3学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5和CSS3学习笔记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS特性："><span class="nav-number">2.</span> <span class="nav-text">CSS特性：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多列布局"><span class="nav-number">2.1.</span> <span class="nav-text">多列布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#媒体查询"><span class="nav-number">2.2.</span> <span class="nav-text">媒体查询</span></a></li></ol></li></ol></div>
             
 
           </div>
