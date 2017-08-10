@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="宝盛道吉">
 <meta property="og:description" content="JQuery使用在head中直接引用JQuery文件$是JQuery符号，JQuery把所有功能全部封装在一个全局变量JQuery中，而$就是JQuery的别名。JQuery（$）本质上是一个函数，因此也是一个对象，$除了直接调用还有其他的属性。这里说一句，JQuery采用这种方式将他的方法和属性都包装到一个函数中，保护了他的属性和方法对外隐藏，是JS闭包的一种运用。 
 选择器选择器是JQuery">
-<meta property="og:updated_time" content="2017-08-09T05:44:07.745Z">
+<meta property="og:updated_time" content="2017-08-10T07:50:53.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery廖雪峰学习笔记">
 <meta name="twitter:description" content="JQuery使用在head中直接引用JQuery文件$是JQuery符号，JQuery把所有功能全部封装在一个全局变量JQuery中，而$就是JQuery的别名。JQuery（$）本质上是一个函数，因此也是一个对象，$除了直接调用还有其他的属性。这里说一句，JQuery采用这种方式将他的方法和属性都包装到一个函数中，保护了他的属性和方法对外隐藏，是JS闭包的一种运用。 
@@ -431,7 +431,7 @@
 <tbody>
 <tr>
 <td style="text-align:left">层级选择器  空格隔开</td>
-<td style="text-align:left">$(‘ul p input’);</td>
+<td style="text-align:left">$(‘ul p input’)</td>
 </tr>
 <tr>
 <td style="text-align:left">子选择器    &gt; 隔开</td>
@@ -469,6 +469,37 @@
 </tr>
 </tbody>
 </table>
+<h3 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h3><h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><ol>
+<li>在当前节点的子节点中进行查找，用find()方法，find本身能接受任意一种选择器</li>
+<li>从当前节点向上查找，用parent()方法</li>
+<li>对于同一级的节点，用next()和prev()方法<h4 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h4></li>
+<li>filter()方法可以过滤掉不符合选择器的节点，参数可以是一个函数，函数内部的this被绑定为DOM对象而不是JQuery对象</li>
+<li>map()方法把一个JQuery对象包含的若干个DOM节点转化为其他对象</li>
+<li>如果JQuery对象包含了不止一个DOM节点，first(), last()和slice()方法可以返回一个新的JQuery对象</li>
+</ol>
+<h3 id="操作DOM"><a href="#操作DOM" class="headerlink" title="操作DOM"></a>操作DOM</h3><h4 id="修改Text和HTML"><a href="#修改Text和HTML" class="headerlink" title="修改Text和HTML"></a>修改Text和HTML</h4><p>jQuery对象的text()和html()方法分别获得节点的文本和原始的HTML文本，如果无参调用就是获取，传入参数就变成了设置文本。<br>由于JQuery对象可以包含多个或者0个DOM对象，所以操作是在一组DOM对象上进行的，同样即使没有DOM对象也不会报错</p>
+<h4 id="修改CSS"><a href="#修改CSS" class="headerlink" title="修改CSS"></a>修改CSS</h4><p>JQuery的‘批量操作’使得修改CSS很方便，调用JQuery对象的方法css(‘name’, ‘value’)，而且支持链式操作<br>css()方法将作用于DOM节点的style属性，具有高优先级。修改class属性可以采用以下方法：<br>jQueryObj.hasClass(‘className’); // 判断是否包含<br>jQueryObj.addClass(‘className’); // 添加class<br>jQueryObj.removeClass(‘className’); // 删除class</p>
+<h4 id="显示和隐藏DOM"><a href="#显示和隐藏DOM" class="headerlink" title="显示和隐藏DOM"></a>显示和隐藏DOM</h4><p>隐藏一个DOM可以设置CSS的属性display属性为none,但是显示的时候要知道之前的display属性，而JQuery直接提供了show()和hide()方法，隐藏了修改display的细节<br>显示和隐藏DOM不改变DOM数的结构</p>
+<h4 id="获取DOM信息"><a href="#获取DOM信息" class="headerlink" title="获取DOM信息"></a>获取DOM信息</h4><ol>
+<li><p>通过jQuery对象的若干方法可以直接获得DOM的宽高信息<br>// 浏览器可视窗口的大小<br>$(window).width();<br>$(window).height();<br>// HTML文档的大小<br>$(document).width();<br>$(document).height();<br>// 某个DIV的大小<br>var div = $(‘#test-div’);<br>div.width();<br>div.height();<br>div.width(400);<br>div.height(‘200px’); // 设置CSS属性，是否生效要看CSS是否有效</p>
+</li>
+<li><p>attr()和removeAttr()用于操作DOM节点的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// &lt;div id = &quot;test-div&quot; name = &quot;Test&quot; start=&quot;1&quot;&gt; ... &lt;/div&gt;</div><div class="line">var div = $(&apos;#test-div&apos;);</div><div class="line">div.attr(&apos;data&apos;); // undefined 属性不存在</div><div class="line">div.attr(&apos;name&apos;); // &apos;Test&apos;</div><div class="line">div.attr(&apos;name&apos;, &apos;Hello&apos;); // div的name属性变成了&apos;hello&apos;;</div><div class="line">div.removeAttr(&apos;name&apos;); // 删除name属性</div><div class="line">div.attr(&apos;name&apos;); // undefined</div></pre></td></tr></table></figure>
+</li>
+<li><p>prop()跟attr()类似，但是对于那种在节点中没有值，只有出现和不出现的属性例如 checked</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var radio = $(&apos;#test-radio&apos;);</div><div class="line">radio.attr(&apos;checked&apos;); // &apos;checked&apos;</div><div class="line">radio.prop(&apos;checked&apos;); // true</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>不过对于这种属性，用is最好 radio.is(‘:checked’); // true 类似的属性有selected is(‘:selected’)</p>
+<h4 id="操作表单"><a href="#操作表单" class="headerlink" title="操作表单"></a>操作表单</h4><p>对于表单元素，JQuery对象提供val()方法获取和设置对应的value属性，无参是获取，传入参数是设置</p>
+<h3 id="修改DOM结构"><a href="#修改DOM结构" class="headerlink" title="修改DOM结构"></a>修改DOM结构</h3><h4 id="添加DOM节点"><a href="#添加DOM节点" class="headerlink" title="添加DOM节点"></a>添加DOM节点</h4><p>添加DOM节点除了使用html()这种暴力的方法外，还可以用append()方法，调用append()传入HTML片段（append()是添加子节点在最后）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ul = $(&apos;#test-div&gt;ul&apos;);</div><div class="line">ul.append(&apos;&lt;li&gt;&lt;span&gt;Hask&lt;/span&gt;&lt;/li&gt;&apos;);</div></pre></td></tr></table></figure></p>
+<p>append()除了接收字符串，还可以传入原始的DOM对象，JQuery对象和函数对象，传入函数时， 要求返回一个字符串，DOM对象或者JQuery对象。因为JQuery对象可能是一组DOM对象，只有传入函数才能针对不同的DOM对象生成不同的子节点<br>prepend()把DOM添加在最前面<br>after()和before()方法用于同级节点</p>
+<h4 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h4><p>remove()方法删除jQuery对象包括的所有DOM节点</p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>由于浏览器绑定事件的方法不同，JQuery来写代码就屏蔽了浏览器的差异<br>on()用来绑定一个事件，传入事件名称和对应的处理函数，也可以直接调用事件方法<br>a.on(‘click’, function(){alter(‘Hello!’);}); 等价于 a.click(function(){alter(‘Hello!’);});<br>jQuery 能够绑定的事件如下</p>
+<ol>
+<li>鼠标事件<br>click: 鼠标点击时触发;<br>dbclick: 鼠标双击时触发;<br>mouseenter: 鼠标进入时触发;<br>mouseleave: 鼠标移开时触发;<br>hover: 鼠标进入和移开时触发两个函数，相当于mouseenter加上mouseleave</li>
+<li>键盘事件<br>键盘事件仅作用于当前焦点的DOM上，通常是&lt;input&gt;和&lt;textarea&gt;</li>
+</ol>
 
       
     </div>
@@ -672,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery使用"><span class="nav-number">1.</span> <span class="nav-text">JQuery使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM对象和JQuery对象转化"><span class="nav-number">3.</span> <span class="nav-text">DOM对象和JQuery对象转化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery对象转换为DOM对象：-JQueryObj-get-index-获得数组中的一个DOM对象"><span class="nav-number"></span> <span class="nav-text">JQuery对象转换为DOM对象： JQueryObj.get(index)获得数组中的一个DOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器"><span class="nav-number">1.</span> <span class="nav-text">过滤器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery使用"><span class="nav-number">1.</span> <span class="nav-text">JQuery使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM对象和JQuery对象转化"><span class="nav-number">3.</span> <span class="nav-text">DOM对象和JQuery对象转化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery对象转换为DOM对象：-JQueryObj-get-index-获得数组中的一个DOM对象"><span class="nav-number"></span> <span class="nav-text">JQuery对象转换为DOM对象： JQueryObj.get(index)获得数组中的一个DOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器"><span class="nav-number">1.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找和过滤"><span class="nav-number">2.</span> <span class="nav-text">查找和过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-number">2.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过滤"><span class="nav-number">2.2.</span> <span class="nav-text">过滤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作DOM"><span class="nav-number">3.</span> <span class="nav-text">操作DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改Text和HTML"><span class="nav-number">3.1.</span> <span class="nav-text">修改Text和HTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改CSS"><span class="nav-number">3.2.</span> <span class="nav-text">修改CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示和隐藏DOM"><span class="nav-number">3.3.</span> <span class="nav-text">显示和隐藏DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取DOM信息"><span class="nav-number">3.4.</span> <span class="nav-text">获取DOM信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作表单"><span class="nav-number">3.5.</span> <span class="nav-text">操作表单</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改DOM结构"><span class="nav-number">4.</span> <span class="nav-text">修改DOM结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加DOM节点"><span class="nav-number">4.1.</span> <span class="nav-text">添加DOM节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除节点"><span class="nav-number">4.2.</span> <span class="nav-text">删除节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">5.</span> <span class="nav-text">事件</span></a></li></ol></div>
             
 
           </div>
