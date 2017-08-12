@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[JS 字符串操作]]></title>
+      <url>%2F2017%2F08%2F12%2FJS%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%2F</url>
+      <content type="text"><![CDATA[JS自带函数 concat将两个或多个字符的文本组合起来，返回一个新的字符串。var a = “hello”;var b = “,world”;var c = a.concat(b);alert(c);//c = “hello,world” indexOf返回字符串中一个子串第一处出现的索引（从左到右搜索）。如果没有匹配项，返回 -1 。var index1 = a.indexOf(“l”);//index1 = 2var index2 = a.indexOf(“l”,3);//index2 = 3 charAt返回指定位置的字符。var get_char = a.charAt(0);//get_char = “h” lastIndexOf返回字符串中一个子串最后一处出现的索引（从右到左搜索），如果没有匹配项，返回 -1 。var index1 = lastIndexOf(‘l’);//index1 = 3var index2 = lastIndexOf(‘l’,2)//index2 = 2 match检查一个字符串匹配一个正则表达式内容，如果么有匹配返回 null。var re = new RegExp(/^\w+$/);var is_alpha1 = a.match(re);//is_alpha1 = “hello”var is_alpha2 = b.match(re);//is_alpha2 = null substring返回字符串的一个子串，传入参数是起始位置和结束位置。var sub_string1 = a.substring(1);//sub_string1 = “ello”var sub_string2 = a.substring(1,4);//sub_string2 = “ell” substr返回字符串的一个子串，传入参数是起始位置和长度var sub_string1 = a.substr(1);//sub_string1 = “ello”var sub_string2 = a.substr(1,4);//sub_string2 = “ello” replace用来查找匹配一个正则表达式的字符串，然后使用新字符串代替匹配的字符串。var result1 = a.replace(re,”Hello”);//result1 = “Hello”var result2 = b.replace(re,”Hello”);//result2 = “,world” search执行一个正则表达式匹配查找。如果查找成功，返回字符串中匹配的索引值。否则返回 -1 。var index1 = a.search(re);//index1 = 0var index2 = b.search(re);//index2 = -1 slice提取字符串的一部分，并返回一个新字符串（与 substring 相同）。var sub_string1 = a.slice(1);//sub_string1 = “ello”var sub_string2 = a.slice(1,4);//sub_string2 = “ell” split通过将字符串划分成子串，将一个字符串做成一个字符串数组。var arr1 = a.split(“”);//arr1 = [h,e,l,l,o] length返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。var len = a.length();//len = 5 toLowerCase将整个字符串转成小写字母。var lower_string = a.toLowerCase();//lower_string = “hello” toUpperCase将整个字符串转成大写字母。var upper_string = a.toUpperCase();//upper_string = “HELLO”]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[工作总结]]></title>
+      <url>%2F2017%2F08%2F12%2F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93(Nobook)%2F</url>
+      <content type="text"><![CDATA[工作技能掌握 Node.js的fs文件系统， JSON与js对象的相互转换（parse，stringily） CSS的pointer-events（穿透） JS的apply 跟call JS的apply跟call每个函数都包含两个非继承来的方法：apply()跟call()。这两个方法都是在特定的作用域中调用函数，实际等于设置函数体内的this的=对象的值。apply(): 接受两个参数：1.在其中运行函数的作用域 参数数组：可以是Array的实例，也可以是arguments对象call():接受两个以上的参数，第一个参数是作用域，其余的所有参数直接传给对象。就是原来传递给函数的参数要罗列出来。 CSS的pointer-eventsPointer-events 字面意思是惦记鼠标事件，值常用的是auto 跟nonepointer-events: none; 表示它将捕获不到任何点击，让事件穿透到它的下面。pointe-events: auto; 默认值，将会捕获在这上边的事件。 JSON与js对象的相互转换首先看看JSON对象和JSON字符串的区别：JSON对象类似于JS对象，只是要对属性的使用“”双引号。而JSON字符串是在JSON对象外加上双引号。在数据传输过程中，json是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。看代码：下边看转化：JSON字符串转化为JSON对象，调用parse方法：Var jsonObj = JSON.parse(jsonStr);JSON对象转化为JSON字符串，调用stringily方法：Var jsonStr = JSON.stringify(jsonObj); 知识总结 jsfl使用flash_cs5_extengding.pdf来查看怎样书写代码和使用。 bit-101 flash actionScript 动画教程 flash actionScript 动画教程.pdf jQuery 的bind()用来绑定事件，绑定事件的格式为$(‘#button’).bind(‘click’, function(){ … }); unbind()解除通过bind绑定的事件，格式为$(‘#button’).bind(‘click’,function(){ … }); [jQuery 的事件命名空间]： (http://www.cnblogs.com/lyzg/p/5347857.html)]]></content>
+    </entry>
+
+    
+    <entry>
       <title></title>
       <url>%2F2017%2F08%2F10%2FHTML5-CSS-5%2F</url>
       <content type="text"></content>
