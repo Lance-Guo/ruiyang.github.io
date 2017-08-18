@@ -108,7 +108,7 @@ navigator 对象表示浏览器的信息，常用的属性：navigator.appName: 
 navigator.appVersion:">
 <meta property="og:image" content="http://guoruiyang.cn/img/ajax.png">
 <meta property="og:image" content="http://guoruiyang.cn/img/promise.png">
-<meta property="og:updated_time" content="2017-08-07T01:39:12.591Z">
+<meta property="og:updated_time" content="2017-08-18T09:16:30.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="廖雪峰JS学习笔记2">
 <meta name="twitter:description" content="浏览器对象Windowwindow对象不仅充当全局作用域，并表示浏览器窗口
@@ -485,6 +485,7 @@ Async = true时才有onreadystatechange函数，为false时直接把代码放到
     1. 无法使用缓存文件
     2. 向服务器发送大量数据（POST没有数据量 限制）
     3. 发送包含未知字符的用户输入时， POST比GET更稳定和更可靠
+    4. GET使用URL或Cookie传参，而POST将数据放在BODY中
     - send(string) 将请求发送到服务器， string仅用于POST请求
 </code></pre><h4 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h4><pre><code>获得服务器的响应，使用XMLHttpRequest对象的responseText和responseXML属性
 | 属性 | 描述 | 
