@@ -110,7 +110,7 @@
 
 
 从一">
-<meta property="og:updated_time" content="2017-08-18T13:58:16.615Z">
+<meta property="og:updated_time" content="2017-08-19T02:06:11.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS高级程序设计学习笔记">
 <meta name="twitter:description" content="第四章两种不同数据类型的值： 基本类型值， 引用类型值基本类型值： Undefined, Null, Boolean, Number, String基本类型值在内存中占据固定大小的空间， 因此保存在栈内存中引用类型的值是对象， 保存在堆内存中
@@ -614,6 +614,32 @@
 <ul>
 <li>函数方法和属性</li>
 </ul>
+<ul>
+<li>函数是对象，因此函数也有属性和方法， 每个函数都包含的属性： </li>
+</ul>
+<ol>
+<li>length: 表示函数希望接受的命名参数的个数</li>
+<li>prototype:  保存引用类型所有的实例方法的真正所在(prototype属性不可枚举)</li>
+</ol>
+<ul>
+<li>每个函数都有两个非继承而来的方法：<br>这两个方法都是在特定的作用域下运行函数，实际上就是设置函数内this的值，都接收两个参数</li>
+</ul>
+<ol>
+<li>apply(): 参数：函数在其中运行的作用域， 另一个是参数数组（可以是Array的实例，也可以是arguments对象）</li>
+<li>call():  参数：函数在其中运行的作用域， 另一个是参数（将参数逐个罗列出来）<br>ECMAScript还定义了一个bind()方法 这个方法会创建一个函数的实例，其this值会被绑定传给bind()函数的值</li>
+</ol>
+<h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>基本包装类型是Number, Boolean, String；尽量不要显式的调用这三个来创建基本包装类型对象<br>声明一个基本类型的数字值，布尔值，字符串时调用方法和添加属性时会进行一下步骤：</p>
+<ol>
+<li>创建基本包装类型的一个实例</li>
+<li>在实例上调用指定方法</li>
+<li>销毁实例</li>
+</ol>
+<ul>
+<li>Number类型：<br>方法 | 返回值</li>
+</ul>
+<ul>
+<li>| -:<br>toString() | 方法可以接受一个表示基数的参数，返回一个几进制的数值的字符串表示<br>valueOf() | 返回对象表示的基本类型的数值<br>toFixed() | 方法会按照指定小数点位数返回数值的字符串表示<br>toExponential() | 返回数值的指数表示法的字符串形式<br>toPrecision() | 传入参数表示几位有效数字</li>
+</ul>
 
       
     </div>
@@ -821,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第四章"><span class="nav-number">1.</span> <span class="nav-text">第四章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两种不同数据类型的值：-基本类型值，-引用类型值"><span class="nav-number">1.1.</span> <span class="nav-text">两种不同数据类型的值： 基本类型值， 引用类型值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境及作用域"><span class="nav-number">1.2.</span> <span class="nav-text">执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作用域链"><span class="nav-number">1.2.2.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没有块级作用域"><span class="nav-number">1.3.</span> <span class="nav-text">没有块级作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.4.</span> <span class="nav-text">垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">2.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object类型"><span class="nav-number">2.1.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array"><span class="nav-number">2.2.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date类型"><span class="nav-number">2.3.</span> <span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">2.4.</span> <span class="nav-text">RegExp 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-类型"><span class="nav-number">2.5.</span> <span class="nav-text">Function 类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第四章"><span class="nav-number">1.</span> <span class="nav-text">第四章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两种不同数据类型的值：-基本类型值，-引用类型值"><span class="nav-number">1.1.</span> <span class="nav-text">两种不同数据类型的值： 基本类型值， 引用类型值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境及作用域"><span class="nav-number">1.2.</span> <span class="nav-text">执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作用域链"><span class="nav-number">1.2.2.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没有块级作用域"><span class="nav-number">1.3.</span> <span class="nav-text">没有块级作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.4.</span> <span class="nav-text">垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">2.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object类型"><span class="nav-number">2.1.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array"><span class="nav-number">2.2.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date类型"><span class="nav-number">2.3.</span> <span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">2.4.</span> <span class="nav-text">RegExp 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-类型"><span class="nav-number">2.5.</span> <span class="nav-text">Function 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本包装类型"><span class="nav-number">2.6.</span> <span class="nav-text">基本包装类型</span></a></li></ol></li></ol></div>
             
 
           </div>
