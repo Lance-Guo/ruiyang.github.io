@@ -110,7 +110,7 @@
 
 
 从一">
-<meta property="og:updated_time" content="2017-08-19T02:06:11.239Z">
+<meta property="og:updated_time" content="2017-08-21T03:08:35.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS高级程序设计学习笔记">
 <meta name="twitter:description" content="第四章两种不同数据类型的值： 基本类型值， 引用类型值基本类型值： Undefined, Null, Boolean, Number, String基本类型值在内存中占据固定大小的空间， 因此保存在栈内存中引用类型的值是对象， 保存在堆内存中
@@ -605,7 +605,7 @@
 </ul>
 <ol>
 <li><p>arguments： 包含传入函数的参数<br>arguments对象有一个callee的属性，改属性是一个指针指向拥有这个arguments的函数（在严格模式下会出错）<br>一个阶乘函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function factorial(num) &#123;</div><div class="line">    if(num &lt;= 1) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return num * factorial(num - 1);</div><div class="line">    &#125;</div><div class="line">&#125; // 缺点： 函数的执行和函数名factorial紧紧耦合在一起</div><div class="line">---</div><div class="line">function factorial(num) &#123;</div><div class="line">    if(num &lt;= 1) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return num * arguments.callee(num - 1);</div><div class="line">    &#125;</div><div class="line">&#125; // 缺点： 严格模式下arguments.callee会出错</div><div class="line">---</div><div class="line">function factorial() &#123;</div><div class="line">    return (function f(num)&#123;</div><div class="line">        if (num &lt;= 1) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return num * f(num -1)</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125; // 缺点： 调用方法比较繁琐：factorial()(num);</div><div class="line">console.log(factorial()(5));</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">function factorial(num) &#123;</div><div class="line">    if(num &lt;= 1) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return num * factorial(num - 1);</div><div class="line">    &#125;</div><div class="line">&#125; // 缺点： 函数的执行和函数名factorial紧紧耦合在一起</div><div class="line">---</div><div class="line">function factorial(num) &#123;</div><div class="line">    if(num &lt;= 1) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return num * arguments.callee(num - 1);</div><div class="line">    &#125;</div><div class="line">&#125; // 缺点： 严格模式下arguments.callee会出错</div><div class="line">---</div><div class="line">function factorial() &#123;</div><div class="line">    return (function f(num)&#123;</div><div class="line">        if (num &lt;= 1) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return num * f(num -1)</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125; // 缺点： 调用方法比较繁琐：factorial()(num);</div><div class="line">console.log(factorial()(5));</div><div class="line">---</div><div class="line">var factorial = (function f(num) &#123;</div><div class="line">    if (num &lt;= 1) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return num * f(num -1)</div><div class="line">    &#125;</div><div class="line">&#125;); // 完美</div></pre></td></tr></table></figure>
 </li>
 <li><p>this: 引用的是函数数据执行的环境对象</p>
 </li>
@@ -640,6 +640,15 @@
 <ul>
 <li>| -:<br>toString() | 方法可以接受一个表示基数的参数，返回一个几进制的数值的字符串表示<br>valueOf() | 返回对象表示的基本类型的数值<br>toFixed() | 方法会按照指定小数点位数返回数值的字符串表示<br>toExponential() | 返回数值的指数表示法的字符串形式<br>toPrecision() | 传入参数表示几位有效数字</li>
 </ul>
+<ul>
+<li>String 类型：</li>
+</ul>
+<ol>
+<li>字符方法 charAt(), charCodeAt()</li>
+<li>操作方法：拼接：concat(), 截取：slice(), substr(), substring()</li>
+<li>位置方法: indexOf(), lastIndexOf()</li>
+<li>trim()方法<br>方法 | 返回值<br>— | —:<br>charAt() | 方法接受一个表示位置的参数，返回一个该位置的字符的字符串表示<br>charCodeAt() | 方法接受一个表示位置的参数，返回一个该位置的字符的字符编码<br>cancat() | 拼接后的字符串<br>slice() | 参数1指定子字符串的开始位置，参数2子字符串到哪结束<br>substr() | 参数1指定子字符串的开始位置，参数2子字符串的长度<br>substring() | 参数1指定子字符串的开始位置，参数2子字符串到哪结束<br>subStr() | 传入参数表示几位有效数字</li>
+</ol>
 
       
     </div>
