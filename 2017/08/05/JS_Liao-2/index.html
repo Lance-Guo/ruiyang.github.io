@@ -1,0 +1,898 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lobster Two:300,300italic,400,400italic,700,700italicPT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="浏览器对象Windowwindow对象不仅充当全局作用域，并表示浏览器窗口
+window对象有innerWidth 和 innerHeight 属性，获得浏览器窗口的内部宽和高
+outerWidth和outerHeight属性，可以获取整个浏览器的宽高
+navigator 对象表示浏览器的信息，常用的属性：navigator.appName: 浏览器名称
+navigator.appVersion:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="廖雪峰JS学习笔记2">
+<meta property="og:url" content="http://guoruiyang.cn/2017/08/05/JS_Liao-2/index.html">
+<meta property="og:site_name" content="宝盛道吉">
+<meta property="og:description" content="浏览器对象Windowwindow对象不仅充当全局作用域，并表示浏览器窗口
+window对象有innerWidth 和 innerHeight 属性，获得浏览器窗口的内部宽和高
+outerWidth和outerHeight属性，可以获取整个浏览器的宽高
+navigator 对象表示浏览器的信息，常用的属性：navigator.appName: 浏览器名称
+navigator.appVersion:">
+<meta property="og:image" content="http://guoruiyang.cn/img/ajax.png">
+<meta property="og:image" content="http://guoruiyang.cn/img/promise.png">
+<meta property="og:updated_time" content="2017-08-18T09:16:30.499Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="廖雪峰JS学习笔记2">
+<meta name="twitter:description" content="浏览器对象Windowwindow对象不仅充当全局作用域，并表示浏览器窗口
+window对象有innerWidth 和 innerHeight 属性，获得浏览器窗口的内部宽和高
+outerWidth和outerHeight属性，可以获取整个浏览器的宽高
+navigator 对象表示浏览器的信息，常用的属性：navigator.appName: 浏览器名称
+navigator.appVersion:">
+<meta name="twitter:image" content="http://guoruiyang.cn/img/ajax.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://guoruiyang.cn/2017/08/05/JS_Liao-2/"/>
+
+
+
+
+
+  <title> 廖雪峰JS学习笔记2 | 宝盛道吉 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">宝盛道吉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">达则兼济天下 穷则独善其身</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/resume" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://guoruiyang.cn/2017/08/05/JS_Liao-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭瑞阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宝盛道吉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                廖雪峰JS学习笔记2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-05T10:09:20+08:00">
+                2017-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JS学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/05/JS_Liao-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/05/JS_Liao-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="浏览器对象"><a href="#浏览器对象" class="headerlink" title="浏览器对象"></a>浏览器对象</h2><h3 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h3><pre><code>window对象不仅充当全局作用域，并表示浏览器窗口
+window对象有innerWidth 和 innerHeight 属性，获得浏览器窗口的内部宽和高
+outerWidth和outerHeight属性，可以获取整个浏览器的宽高
+</code></pre><h3 id="navigator-对象表示浏览器的信息，常用的属性："><a href="#navigator-对象表示浏览器的信息，常用的属性：" class="headerlink" title="navigator 对象表示浏览器的信息，常用的属性："></a>navigator 对象表示浏览器的信息，常用的属性：</h3><pre><code>navigator.appName: 浏览器名称
+navigator.appVersion: 浏览器版本
+navigator.language 浏览器设置的语言
+navigator.platform: 操作系统类型
+navigator.userAgent: 浏览器设定的User-Agent字符串
+</code></pre><h3 id="screen-表示屏幕信息-常用属性："><a href="#screen-表示屏幕信息-常用属性：" class="headerlink" title="screen 表示屏幕信息 常用属性："></a>screen 表示屏幕信息 常用属性：</h3><pre><code>screen.width: 屏幕宽度，以像素为单位
+screen.height: 屏幕高度，以像素为单位
+screen.colorDepth: 返回颜色位数
+</code></pre><h3 id="location-表示当前页面的URL信息"><a href="#location-表示当前页面的URL信息" class="headerlink" title="location 表示当前页面的URL信息"></a>location 表示当前页面的URL信息</h3><pre><code>一个完整的URL：
+&gt; http://www.example.com:8080/path/index.html?a=1&amp;b=2#TOP
+可以用location.href获取。要获得URL各个部分的值，可以这么写：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location.protocol; // &apos;http&apos;</div><div class="line">location.host; // &apos;www.example.com&apos;</div><div class="line">location.port; // &apos;8080&apos;</div><div class="line">location.pathname; // &apos;/path/index.html&apos;</div><div class="line">location.search; // &apos;?a=1&amp;b=2&apos;</div><div class="line">location.hash; // &apos;TOP&apos;</div></pre></td></tr></table></figure>
+<pre><code>要加载一个新页面，可以调用location.assign()。如果要重新加载当前页面，调用location.reload()方法非常方便。
+</code></pre><h3 id="document-对象表示当前页面，整个DOM树的根节点"><a href="#document-对象表示当前页面，整个DOM树的根节点" class="headerlink" title="document 对象表示当前页面，整个DOM树的根节点"></a>document 对象表示当前页面，整个DOM树的根节点</h3><pre><code>###### document.title 改变标题
+查找DOM树的某个节点：从document对象开始查找，最常用的就是根据ID和Tag Name   document.getElementById(), getElementsByTagName()
+###### document 还有一个cookie属性，可以获得当前页面的cookie    
+</code></pre><h3 id="history-对象保留了浏览器的历史记录，JS可以调用history的back-和forward"><a href="#history-对象保留了浏览器的历史记录，JS可以调用history的back-和forward" class="headerlink" title="history 对象保留了浏览器的历史记录，JS可以调用history的back()和forward()"></a>history 对象保留了浏览器的历史记录，JS可以调用history的back()和forward()</h3><pre><code>history对象不建议使用
+</code></pre><h3 id="更新DOM"><a href="#更新DOM" class="headerlink" title="更新DOM"></a>更新DOM</h3><pre><code>##### 修改节点的文本方法有两种：
+###### 1.修改innerHTML属性：即可修改一个DOM节点的文本内容，也可以通过HTML片段修改DOM节点内部的子树
+###### 2. 修改innerText或textContent属性，直接对字符串进行HTML编码，无法设置任何HTML标签
+ 在读取属性时，innerHTML不返回隐藏的文本，而textContent返回所有文本，IE&lt;9不支持textContent
+DOM节点的style属性对应所有的CSS，fontSize对应CSS中的font-size
+</code></pre><h3 id="插入DOM"><a href="#插入DOM" class="headerlink" title="插入DOM"></a>插入DOM</h3><pre><code>innerHTML会替换原来的所有节点，所以插入节点有两个其他方法：
+1.appendChild() 把一个子节点添加到父节点的最后一个子节点
+动态创建一个节点然后添加到DOM树种可以实现很多功能：添加CSS格式：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var d = document.createElement(‘style’);</div><div class="line">d.setAttribute(‘type’, ‘text/css’);</div><div class="line">d.innerHTML = ‘p &#123; color: red &#125;’;</div><div class="line">document.getElementsByTagName(‘head’)[0].appendChild(d);</div></pre></td></tr></table></figure>
+<pre><code>2. insertBefore 把子节点插入到指定位置
+用法： parentElement.insertBefore(newElement, referenceElement); 子节点会插入到referenceElement 之前
+循环一个父节点的所有子节点通过迭代children属性实现：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var i, c,</div><div class="line">list = document.getElementById(‘list’);</div><div class="line">for (i = 0; i &lt; list.children.length; i++) &#123;</div><div class="line">    c = list.children[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="删除DOM"><a href="#删除DOM" class="headerlink" title="删除DOM"></a>删除DOM</h3><pre><code>删除节点需要获得该节点本身跟他的父节点，调用父节点的removeChild把自己删掉
+删除的节点虽然不在文档树中，但其实他还在内存中，可以随时被添加到别的位置
+children属性是一个只读属性，并且它在子节点变化时会时时更新，因此删除多个节点时，children属性时刻都在变化
+</code></pre><h3 id="操作表单"><a href="#操作表单" class="headerlink" title="操作表单"></a>操作表单</h3><pre><code>用JS操作表单和操作DOM一样， JS操作表单可以获得用户的输入或者对一个输入框设置新的内容
+</code></pre><h4 id="表单控件："><a href="#表单控件：" class="headerlink" title="表单控件："></a>表单控件：</h4><pre><code>* 文本框，&lt;input type = “text”&gt; 用于输入文本
+* 口令框， &lt;input type = “password”&gt; 用于输入口令
+* 单选框， &lt;input type = “radio”&gt; 用于选择一项
+* 复选框，&lt;input type = “checkbox”&gt; 用于选择多项
+* 下拉框，&lt;select&gt; 用于选择一项
+* 隐藏文本， &lt;input type = “hidden”&gt; 用户不可见，但表单提交时会把隐藏文本发送到服务器
+</code></pre><h4 id="获取值"><a href="#获取值" class="headerlink" title="获取值"></a>获取值</h4><pre><code>首先获得节点的引用， 然后调用**value**获得对应的用户的输入值，对于radio 和 checkbox 获得是否勾选通过**checked**进行判断
+</code></pre><h4 id="设置值"><a href="#设置值" class="headerlink" title="设置值"></a>设置值</h4><pre><code>和获取值类似，对于text , password, hidden, select 直接设置**value**
+对于radio和checkbox，设置**checked** 为true或者false即可
+</code></pre><h4 id="HTML5控件"><a href="#HTML5控件" class="headerlink" title="HTML5控件"></a>HTML5控件</h4><pre><code>新增常用： date, datetime, datetime-local, color等，他们都是用&lt;input&gt;标签 如： &lt;input type = “date” value = “2015-07-01”&gt;
+</code></pre><h4 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h4><pre><code>两种方式：
+    * 1.通过**form**元素的submit()方法提交表单
+    * 2.浏览器默认点击&lt;button type = “submit”&gt;时提交表单，或者是在最后一个输入键按回车，因此可以通过相应&lt;form&gt;本身的onsubmit事件。onsubmit = “return checkForm()”
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt; form id = “login=form” methon = “post” onsubmit = “return checkForm()”&gt;</div><div class="line">		&lt;input type = “text” id = “username” name = “username”&gt;</div><div class="line">		&lt;input type = “password” id = “input-password”&gt;</div><div class="line">		&lt;input type = “hidden” id = “md5-password&quot; name = “password”&gt;</div><div class="line">		&lt;button type = “submit”&gt;Submit&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> 	function checkForm() &#123;</div><div class="line">		var input_pwd = document.getElementById(‘input-password’);</div><div class="line">		var md5_pwd = document.getElementById(‘md5-password’);</div><div class="line">		md5_pwd.value = toMD5(input_pwd.vaule);</div><div class="line">		return true; </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<pre><code>Type为hidden用户不可见， 同时因为设置了name属性的&lt;input&gt;的数据会被提交，没有name属性的就不会被提交。
+</code></pre><h3 id="操作文件"><a href="#操作文件" class="headerlink" title="操作文件"></a>操作文件</h3><h4 id="上传文件的唯一控件"><a href="#上传文件的唯一控件" class="headerlink" title="上传文件的唯一控件 "></a>上传文件的唯一控件 <figure class="highlight plain"><figcaption><span>type = “file”> ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    ** 注意： 当一个表单包含``` &lt;input type = “file”&gt; ```时，表单的enctype必须制定为multipart/form-data, method必须指定为post， 浏览器才能正确的编码并且以multipart/form-data格式发送表单数据 **</div><div class="line">    浏览器只允许选择本地文件因此不能通过改变value的方式来改变文件路径，也不能获得文件的真实路径</div><div class="line">    </div><div class="line">#### File API </div><div class="line">    新增的file API  允许JS获取文件内容，H65新增的File API主要有File和FIleReader两个主要对象</div><div class="line">    </div><div class="line">### AJAX</div><div class="line">    AJAX并不是JS的规范， 他是Asynchronous JavaScript and XML 意识就是用JS执异步网络请求。</div><div class="line">    Web 运作原理： 一次HTTP请求对应一个页面</div><div class="line">    而AJAX请求时异步的，要通过回调函数获得响应</div><div class="line">    现在浏览器上写AJAX主要依靠XMLHttpRequest对象</div><div class="line">    var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象</div><div class="line">    Request.onreadystatechange = function()</div><div class="line">     &#123; 状态发生变化时， 函数被回调 &#125;</div><div class="line">    低版本的IE使用ActiveXObject对象</div><div class="line">    Var request = new ActiveXObject(‘Microsoft.XMLHTTP’);</div><div class="line">    通用：</div></pre></td></tr></table></figure></h4><pre><code>var request;
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+} else {
+    request = new ActiveXObjext(&apos;Microsoft.XMLHTTP&apos;); // 针对低版本IE
+}
+
+```
+创建对象后，首先设置onreadystatechange的回调函数，在回调函数中通过你readyState === 4 来判断是否完成， 在根据status === 200 判断是否是一个成功的响应。
+XMLHttpRequest对象三个重要属性：
+| 属性 | 描述 | 
+| :----- | :----- | 
+|onreadystatechange | 每当readyState属性变化时调用的函数 | 
+| readyState | 存有XMLHttpRequest的状态， 从0 到 4 变化 |  
+| status | 两个值200 404 |  
+    0： 请求未初始化
+    1： 服务器连接已建立
+    2： 请求已接收
+    3： 请求处理中
+    4： 请求已完成，且响应就绪
+    200： “OK”
+    404: 未找到页面
+如果需要将请求发送到服务器，要使用XMLHttpRequest对象的open()和send()方法
+    - open(methon, url, async) 方法规定了请求的类型，URL，和是否异步
+XMLHttpRequest对象的open()方法有三个参数，第一个参数指定是GET还是POST， 第二个参数指定URL地址， 第三个参数指定是否使用异步，默认为true, 所以不写
+Async = true时才有onreadystatechange函数，为false时直接把代码放到send()方法后即可（参考W3AJAX）
+</code></pre><h4 id="GET和POST的区别："><a href="#GET和POST的区别：" class="headerlink" title="GET和POST的区别："></a>GET和POST的区别：</h4><pre><code>与POST相比， GET更简单也更快，并且在大多数下都能用，例外在以下场景用POST：
+    1. 无法使用缓存文件
+    2. 向服务器发送大量数据（POST没有数据量 限制）
+    3. 发送包含未知字符的用户输入时， POST比GET更稳定和更可靠
+    4. GET使用URL或Cookie传参，而POST将数据放在BODY中
+    - send(string) 将请求发送到服务器， string仅用于POST请求
+</code></pre><h4 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h4><pre><code>获得服务器的响应，使用XMLHttpRequest对象的responseText和responseXML属性
+| 属性 | 描述 | 
+| :----- | :----- | 
+| responseText | 获得字符串形式的响应数据 | 
+| responseXML | 获得XML形式的响应数据 |  
+</code></pre><h3 id="安全限制"><a href="#安全限制" class="headerlink" title="安全限制"></a>安全限制</h3><pre><code>由于浏览器的同源策略，JS在发送AJAX请求时，URL的域名必须和当前的页面完全一致：域名要一致，协议要相同(http和https不同), 端口号要相同
+JS有大致三种方式去请求域外的URL
+1. 通过Flash插件发送HTTP请求，已经快被淘汰
+2. 在同源域名下架设一个代理服务器进行转发，JS负责把请求发送到代理服务器，代理服务器再把结果返回，这样就遵循了同源策略。
+3. JSONP利用了浏览器允许跨域引用JS资源，限制是只能使用GET请求，并且要求返回JS。 具体的做法就是： 先在页面中准备好回调函数，然后给页面添加一个&lt;script&gt;节点，相当于动态的读取域外的JS资源
+</code></pre><h3 id="H5的跨域策略：-CORS"><a href="#H5的跨域策略：-CORS" class="headerlink" title="H5的跨域策略： CORS"></a>H5的跨域策略： CORS</h3><pre><code>CORS全称： Cross-Origin Resourse Sharing 跨域资源共享
+Origin表示当前页面的域，当JS想域外发起请求时，浏览器收到响应后，首先检查Access-Control-Allow-Origin 是否包含本域。
+&gt;  用一个图来表示就是：
+</code></pre><p><img src="/img/ajax.png" alt="AJAX"><br>    假设本域是my.com，外域是sina.com，只要响应头Access-Control-Allow-Origin为<a href="http://my.com，或者是*，本次请求就可以成功。" target="_blank" rel="external">http://my.com，或者是*，本次请求就可以成功。</a></p>
+<h3 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h3><pre><code>Canvas时HTML5的新增组件， 他就像一个画布，可以用JS在上面绘制各种图表，动画等
+</code></pre><h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><pre><code>Promise对象是一种“承诺将来会执行”的对象。
+可见Promise最大的好处是在异步执行的流程中，把执行代码和处理结果的代码清晰地分离了：
+</code></pre><p><img src="/img/promise.png" alt="promise"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/04/JS_Liao-1/" rel="next" title="廖雪峰JS学习笔记">
+                <i class="fa fa-chevron-left"></i> 廖雪峰JS学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/07/personal-summary/" rel="prev" title="2017年中个人总结">
+                2017年中个人总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/05/JS_Liao-2/"
+           data-title="廖雪峰JS学习笔记2" data-url="http://guoruiyang.cn/2017/08/05/JS_Liao-2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="郭瑞阳" />
+          <p class="site-author-name" itemprop="name">郭瑞阳</p>
+           
+              <p class="site-description motion-element" itemprop="description">个人博客，记录成长</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Lance-Guo" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/guo-lu-fei-10/activities" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器对象"><span class="nav-number">1.</span> <span class="nav-text">浏览器对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Window"><span class="nav-number">1.1.</span> <span class="nav-text">Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#navigator-对象表示浏览器的信息，常用的属性："><span class="nav-number">1.2.</span> <span class="nav-text">navigator 对象表示浏览器的信息，常用的属性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#screen-表示屏幕信息-常用属性："><span class="nav-number">1.3.</span> <span class="nav-text">screen 表示屏幕信息 常用属性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-表示当前页面的URL信息"><span class="nav-number">1.4.</span> <span class="nav-text">location 表示当前页面的URL信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-对象表示当前页面，整个DOM树的根节点"><span class="nav-number">1.5.</span> <span class="nav-text">document 对象表示当前页面，整个DOM树的根节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history-对象保留了浏览器的历史记录，JS可以调用history的back-和forward"><span class="nav-number">1.6.</span> <span class="nav-text">history 对象保留了浏览器的历史记录，JS可以调用history的back()和forward()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新DOM"><span class="nav-number">1.7.</span> <span class="nav-text">更新DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入DOM"><span class="nav-number">1.8.</span> <span class="nav-text">插入DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除DOM"><span class="nav-number">1.9.</span> <span class="nav-text">删除DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作表单"><span class="nav-number">1.10.</span> <span class="nav-text">操作表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表单控件："><span class="nav-number">1.10.1.</span> <span class="nav-text">表单控件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取值"><span class="nav-number">1.10.2.</span> <span class="nav-text">获取值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置值"><span class="nav-number">1.10.3.</span> <span class="nav-text">设置值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5控件"><span class="nav-number">1.10.4.</span> <span class="nav-text">HTML5控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交表单"><span class="nav-number">1.10.5.</span> <span class="nav-text">提交表单</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作文件"><span class="nav-number">1.11.</span> <span class="nav-text">操作文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#上传文件的唯一控件"><span class="nav-number">1.11.1.</span> <span class="nav-text">上传文件的唯一控件 type = “file”> ```1234567891011121314151617    ** 注意： 当一个表单包含``` <input type = “file”> ```时，表单的enctype必须制定为multipart/form-data, method必须指定为post， 浏览器才能正确的编码并且以multipart/form-data格式发送表单数据 **    浏览器只允许选择本地文件因此不能通过改变value的方式来改变文件路径，也不能获得文件的真实路径    #### File API     新增的file API  允许JS获取文件内容，H65新增的File API主要有File和FIleReader两个主要对象    ### AJAX    AJAX并不是JS的规范， 他是Asynchronous JavaScript and XML 意识就是用JS执异步网络请求。    Web 运作原理： 一次HTTP请求对应一个页面    而AJAX请求时异步的，要通过回调函数获得响应    现在浏览器上写AJAX主要依靠XMLHttpRequest对象    var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象    Request.onreadystatechange = function()     { 状态发生变化时， 函数被回调 }    低版本的IE使用ActiveXObject对象    Var request = new ActiveXObject(‘Microsoft.XMLHTTP’);    通用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GET和POST的区别："><span class="nav-number">1.11.2.</span> <span class="nav-text">GET和POST的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器响应"><span class="nav-number">1.11.3.</span> <span class="nav-text">服务器响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全限制"><span class="nav-number">1.12.</span> <span class="nav-text">安全限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H5的跨域策略：-CORS"><span class="nav-number">1.13.</span> <span class="nav-text">H5的跨域策略： CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas"><span class="nav-number">1.14.</span> <span class="nav-text">canvas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise"><span class="nav-number">1.15.</span> <span class="nav-text">Promise</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭瑞阳</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guoruiyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
