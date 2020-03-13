@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[TypeScript]]></title>
+      <url>%2F2020%2F03%2F13%2FTypeScript%2F</url>
+      <content type="text"><![CDATA[TypeScript和JavaScriptTypeScript 是JavaScript 的一个超集，支持ES6标准TypeScript的实际目标是开发大型应用，他可以编译成纯的JavaScriptTypeScript增加的功能有： 类型批注和编译时类型检查 类型推断 接口 枚举 Mixin 泛型编程 名字空间 元组 Await从ES6反移植来的：类、模块、lambda函数的箭头语法、可选参数和默认参数 TypeScript的基础语法TS(TypeScript的简写)程序由模块、函数、变量、语句和表达式、注释等组成 TypeScript的一些语法特性 保留字： in break if try continue implements等等 TS会忽略程序中出现的空格、制表符和换行符 TS区分大小写 分号可选，但尽量不省略 TS注释：// 行注释 / 块注释 / TS是面向对象的，如下边的例子12345678class Site&#123; name(): void&#123; console.log(&quot;Me&quot;); &#125;&#125;var obj = new Site();obj.name(); TypeScript的基础类型 数据类型 关键字 描述 任意类型 any 声明为any的变量可以赋予任意类型的值 数字类型 number 双精度64为浮点数 字符串类型 string 使用’或者”来表示，反引号`来定义多行字符串和内嵌表达式 布尔类型 boolean true或false 数组类型 无 let arr: number[] 元组 无 let x: [string, number] 枚举 enum 枚举类型用于定义数值集合 void void 用于表示方法返回值的类型，表示该方法没有返回值 null null 表示对象值缺失 undefined undefined 初始化变量为一个未定义的值 never never never是其他类型包括null和undefined]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[WebPack]]></title>
+      <url>%2F2020%2F03%2F13%2FWebPack%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[常见排序算法的JS实现]]></title>
       <url>%2F2017%2F08%2F16%2F%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84JS%E5%AE%9E%E7%8E%B0%2F</url>
       <content type="text"><![CDATA[常见的排序算法1. 冒泡排序，原理： 一次比较相邻的两个数， 如果前边的大就交换位置，这样一轮下来，最后一个是最大的。 对除了最后一个数重复第一步，直到只剩一个数代码实现：12345678910111213141516171819202122function bubbleSort(myArray)&#123; var len = myArray.length; for (let i = 0; i &lt; len-1; i++) &#123; for(let j = 0, stop = len - i - 1; j &lt; stop; j++) &#123; if(myArray[j] &gt; myArray[j+1]) &#123; let temp = myArray[j]; myArray[j] = myArray[j+1]; myArray[j+1] = temp; &#125; &#125; &#125; return myArray;&#125;var s = [5,6,7,34,45,23,12,34,14,56];for (let i = 0; i &lt; 10; i++) &#123; s = s.concat(s); // 产生一个长度为2的九次方*10的数组&#125;var start = Date.now();bubbleSort(s);var end = Date.now();console.log(&quot;排序后的数组：&quot; + s);console.log(&quot;所用时间：&quot; + (end - start)); 2. 选择排序， 原理： 找出最小的数很第一个交换位置 在剩下的数中，找出第二小的数，放在第二个位置 依次类推代码实现：123456789101112131415161718192021function selectSort(myArray) &#123; var len = myArray.length; for (let i = 0; i &lt; len - 1; i++) &#123; for(let j = i+1; j &lt; len; j++) &#123; if(myArray[j] &lt; myArray[i]) &#123; temp = myArray[i]; myArray[i] = myArray[j]; myArray[j] = temp; &#125; &#125; &#125;&#125;var s = [5,6,7,34,45,23,12,34,14,56];for (let i = 0; i &lt; 10; i++) &#123; s = s.concat(s); // 产生一个长度为2的九次方*10的数组&#125;var start = Date.now();selectSort(s);var end = Date.now();console.log(&quot;排序后的数组：&quot; + s);console.log(&quot;所用时间：&quot; + (end - start)); 看到这里是不是觉得这个测试用例好蠢 我们改进一下：1234567891011function testTime(sortFunc) &#123; var s = [5,6,7,34,45,23,12,34,14,56]; for (let i = 0; i &lt; 10; i++) &#123; s = s.concat(s); // 产生一个长度为2的九次方*10的数组 &#125; var start = Date.now(); sortFunc(s); var end = Date.now(); console.log(&quot;排序后的数组：&quot; + s); console.log(&quot;所用时间：&quot; + (end - start));&#125; 之后写好一个方法，然后调用testTime()将排序方法传进去即可 插入排序 原理： 把数组分为已排序和未排序两部分。（第一步可以第一个数为已排序，其余为未排序） 从未排序中抽出第一个数，和已排序部分进行比较，插入到合适的位置代码实现：12345678910111213function insertionSort(myArray) &#123; var len = myArray.length; for (let i = 1; i &lt; len; i++) &#123; let k; for (let j = 0; j &lt; i; j++) &#123; if(myArray[i] &lt; myArray[j]) &#123; myArray[j+1] = myArray[j]; &#125; &#125; myArray[j] = myArray[i];s &#125; return myArray;&#125;]]></content>
@@ -33,7 +47,7 @@
     <entry>
       <title><![CDATA[工作总结]]></title>
       <url>%2F2017%2F08%2F12%2F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93(Nobook)%2F</url>
-      <content type="text"><![CDATA[工作技能掌握 Node.js的fs文件系统， JSON与js对象的相互转换（parse，stringily） CSS的pointer-events（穿透） JS的apply 跟call JS的apply跟call每个函数都包含两个非继承来的方法：apply()跟call()。这两个方法都是在特定的作用域中调用函数，实际等于设置函数体内的this的=对象的值。apply(): 接受两个参数：1.在其中运行函数的作用域 参数数组：可以是Array的实例，也可以是arguments对象call():接受两个以上的参数，第一个参数是作用域，其余的所有参数直接传给对象。就是原来传递给函数的参数要罗列出来。 CSS的pointer-eventsPointer-events 字面意思是惦记鼠标事件，值常用的是auto 跟nonepointer-events: none; 表示它将捕获不到任何点击，让事件穿透到它的下面。pointe-events: auto; 默认值，将会捕获在这上边的事件。 JSON与js对象的相互转换首先看看JSON对象和JSON字符串的区别：JSON对象类似于JS对象，只是要对属性的使用“”双引号。而JSON字符串是在JSON对象外加上双引号。在数据传输过程中，json是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。看代码：下边看转化：JSON字符串转化为JSON对象，调用parse方法：Var jsonObj = JSON.parse(jsonStr);JSON对象转化为JSON字符串，调用stringily方法：Var jsonStr = JSON.stringify(jsonObj); 知识总结 jsfl使用flash_cs5_extengding.pdf来查看怎样书写代码和使用。 bit-101 flash actionScript 动画教程 flash actionScript 动画教程.pdf jQuery 的bind()用来绑定事件，绑定事件的格式为$(‘#button’).bind(‘click’, function(){ … }); unbind()解除通过bind绑定的事件，格式为$(‘#button’).bind(‘click’,function(){ … }); [jQuery 的事件命名空间]： (http://www.cnblogs.com/lyzg/p/5347857.html)]]></content>
+      <content type="text"><![CDATA[工作技能掌握 Node.js的fs文件系统， JSON与js对象的相互转换（parse，stringily） CSS的pointer-events（穿透） JS的apply 跟call JS的apply跟call每个函数都包含两个非继承来的方法：apply()跟call()。这两个方法都是在特定的作用域中调用函数，实际等于设置函数体内的this的=对象的值。apply(): 接受两个参数：1.在其中运行函数的作用域 参数数组：可以是Array的实例，也可以是arguments对象call():接受两个以上的参数，第一个参数是作用域，其余的所有参数直接传给对象。就是原来传递给函数的参数要罗列出来。 CSS的pointer-eventsPointer-events 字面意思是惦记鼠标事件，值常用的是auto 跟nonepointer-events: none; 表示它将捕获不到任何点击，让事件穿透到它的下面。pointer-events: auto; 默认值，将会捕获在这上边的事件。 JSON与js对象的相互转换首先看看JSON对象和JSON字符串的区别：JSON对象类似于JS对象，只是要对属性的使用“”双引号。而JSON字符串是在JSON对象外加上双引号。在数据传输过程中，json是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。看代码：下边看转化：JSON字符串转化为JSON对象，调用parse方法：Var jsonObj = JSON.parse(jsonStr);JSON对象转化为JSON字符串，调用stringily方法：Var jsonStr = JSON.stringify(jsonObj); 知识总结 jsfl使用flash_cs5_extengding.pdf来查看怎样书写代码和使用。 bit-101 flash actionScript 动画教程 flash actionScript 动画教程.pdf jQuery 的bind()用来绑定事件，绑定事件的格式为$(‘#button’).bind(‘click’, function(){ … }); unbind()解除通过bind绑定的事件，格式为$(‘#button’).bind(‘click’,function(){ … }); [jQuery 的事件命名空间]： (http://www.cnblogs.com/lyzg/p/5347857.html)]]></content>
     </entry>
 
     
@@ -68,7 +82,7 @@
     <entry>
       <title><![CDATA[图片模糊和灰度处理，边界检测]]></title>
       <url>%2F2017%2F05%2F31%2FBlurImage%2F</url>
-      <content type="text"><![CDATA[图像卷积和滤波的一些知识滤波过程：对图像的每一个像素点，计算他邻域的像素和滤波器矩阵（卷积核）的对应元素的乘积，然后加起来作为该点的像素值卷积和协相关： 对图像和滤波矩阵进行逐个的元素相乘再求和的操作就相当于将一个二维函数转移到另一个二维函数的所有位置，这个操作就是卷积或者协相关 区别： 卷积要先对滤波矩阵进行180的翻转 滤波器的规则： 滤波器大小为奇数，有中心有半径： 如3X3，5X5 滤波器所有元素之和为1，保证图片亮度不变。&gt;1 更亮，&lt;1 变暗 出现负数和大于255直接截断或者取绝对值 图像知识：一个图片有宽高，在屏幕上他的宽高分别代表了宽多少个像素，高有多少个像素，一个像素点有四个值：r,g,b,a。那么遍历图像的所有像素有：```for (let i = 0; i &lt; picture.width; i++) { for (let j = 0; j &lt; picture.height; j++) { let k = (j width + i) 4; pixes[k] // r pixes[k+1] // g pixes[k+2] // b pixes[k+3] // a }} 高斯模糊：实例：1.高斯模糊]]></content>
+      <content type="text"><![CDATA[图像卷积和滤波的一些知识滤波过程：对图像的每一个像素点，计算他邻域的像素和滤波器矩阵（卷积核）的对应元素的乘积，然后加起来作为该点的像素值卷积和协相关： 对图像和滤波矩阵进行逐个的元素相乘再求和的操作就相当于将一个二维函数转移到另一个二维函数的所有位置，这个操作就是卷积或者协相关 区别： 卷积要先对滤波矩阵进行180的翻转 滤波器的规则： 滤波器大小为奇数，有中心有半径： 如3X3，5X5 滤波器所有元素之和为1，保证图片亮度不变。&gt;1 更亮，&lt;1 变暗 出现负数和大于255直接截断或者取绝对值 图像知识：一个图片有宽高，在屏幕上他的宽高分别代表了宽多少个像素，高有多少个像素，一个像素点有四个值：r,g,b,a。那么遍历图像的所有像素有：123456789for (let i = 0; i &lt; picture.width; i++) &#123; for (let j = 0; j &lt; picture.height; j++) &#123; let k = (j * width + i) * 4; pixes[k] // r pixes[k+1] // g pixes[k+2] // b pixes[k+3] // a &#125;&#125; 高斯模糊：实例：1.高斯模糊]]></content>
     </entry>
 
     
