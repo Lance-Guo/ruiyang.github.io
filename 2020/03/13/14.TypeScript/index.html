@@ -135,7 +135,7 @@ Mixin
 Await
 
 从ES6反移植来的：类、模块、lambda函数的箭头语法、可选参数">
-<meta property="og:updated_time" content="2020-03-13T13:39:16.752Z">
+<meta property="og:updated_time" content="2020-03-13T14:05:31.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript">
 <meta name="twitter:description" content="TypeScript和JavaScriptTypeScript 是JavaScript 的一个超集，支持ES6标准TypeScript的实际目标是开发大型应用，他可以编译成纯的JavaScriptTypeScript增加的功能有：
@@ -456,7 +456,8 @@ Await
 </ol>
 <p>从ES6反移植来的：类、模块、lambda函数的箭头语法、可选参数和默认参数</p>
 <h2 id="TypeScript的基础语法"><a href="#TypeScript的基础语法" class="headerlink" title="TypeScript的基础语法"></a>TypeScript的基础语法</h2><p>TS(TypeScript的简写)程序由模块、函数、变量、语句和表达式、注释等组成</p>
-<h4 id="TypeScript的一些语法特性"><a href="#TypeScript的一些语法特性" class="headerlink" title="TypeScript的一些语法特性"></a>TypeScript的一些语法特性</h4><ol>
+<p>TypeScript的一些语法特性</p>
+<ol>
 <li>保留字： in break if try continue implements等等</li>
 <li>TS会忽略程序中出现的空格、制表符和换行符</li>
 <li>TS区分大小写</li>
@@ -544,7 +545,8 @@ Await
 </li>
 </ol>
 <h2 id="TypeScript的变量声明"><a href="#TypeScript的变量声明" class="headerlink" title="TypeScript的变量声明"></a>TypeScript的变量声明</h2><p>TS的变量的声明只是多了类型声明，其他同JS一样。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var username:string = &quot;Guoruiyang&quot;;</div><div class="line">function test(): void&#123;</div><div class="line">    //没有返回值</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="TypeScript的运算符、条件语句、循环、Number、String、Array同JS无区别"><a href="#TypeScript的运算符、条件语句、循环、Number、String、Array同JS无区别" class="headerlink" title="TypeScript的运算符、条件语句、循环、Number、String、Array同JS无区别"></a>TypeScript的运算符、条件语句、循环、Number、String、Array同JS无区别</h2><h2 id="TypeScript的函数"><a href="#TypeScript的函数" class="headerlink" title="TypeScript的函数"></a>TypeScript的函数</h2><h4 id="TS的函数参数与JS不同"><a href="#TS的函数参数与JS不同" class="headerlink" title="TS的函数参数与JS不同"></a>TS的函数参数与JS不同</h4><ol>
+<h2 id="TypeScript的运算符"><a href="#TypeScript的运算符" class="headerlink" title="TypeScript的运算符"></a>TypeScript的运算符</h2><p>TS的运算符、条件语句、循环、Number、String、Array同JS无区别</p>
+<h2 id="TypeScript的函数"><a href="#TypeScript的函数" class="headerlink" title="TypeScript的函数"></a>TypeScript的函数</h2><h4 id="TS的函数参数与JS不同"><a href="#TS的函数参数与JS不同" class="headerlink" title="TS的函数参数与JS不同"></a>TS的函数参数与JS不同</h4><ol>
 <li><p>传入函数的参数可以指定类型</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var getAge(num: number)&#123;</div><div class="line">    return num;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -562,12 +564,12 @@ Await
 <li><p>generator函数 控制函数的执行<br>generator函数的声明和调用如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//函数后边跟*表示是generator函数</div><div class="line">function* doThings()&#123;</div><div class="line">    console.log(&quot;start&quot;);</div><div class="line">    yield;</div><div class="line">    console.log(&quot;end&quot;);</div><div class="line">&#125;</div><div class="line">//doThings不能直接调用</div><div class="line">var func1 = doThings;</div><div class="line">//输出start</div><div class="line">func1.next();</div><div class="line">//输出end</div><div class="line">funxc1.next();</div></pre></td></tr></table></figure>
 </li>
-<li><p>destructuring析构表达式<br>通过destructuring表达式将对象或数组拆解成任意数量的变量<br>```<br>//返回一个对象<br>function getStock(){<br> return {</p>
-<pre><code>code: &quot;IBM&quot;,
-price: 100
-</code></pre><p> }<br>}<br>// 等同于var a = getStock(); a.code=”IBM”; a.price=100;<br>var {code, price} = getStock();<br>//错误<br>var {codex, price} = getStock();<br>//正确codex的值就是code的值<br>var {code: codex, price} = getStock();</p>
-<h2 id="TypeScript元组"><a href="#TypeScript元组" class="headerlink" title="TypeScript元组"></a>TypeScript元组</h2></li>
+<li><p>destructuring析构表达式<br>通过destructuring表达式将对象或数组拆解成任意数量的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//返回一个对象</div><div class="line">function getStock()&#123;</div><div class="line">    return &#123;</div><div class="line">        code: &quot;IBM&quot;,</div><div class="line">        price: 100,</div><div class="line">        other: 123</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 等同于var a = getStock(); a.code=&quot;IBM&quot;; a.price=100;</div><div class="line">var &#123;code, price&#125; = getStock();</div><div class="line">//错误</div><div class="line">var &#123;codex, price&#125; = getStock();</div><div class="line">//正确 codex的值就是code的值</div><div class="line">var &#123;code: codex, price&#125; = getStock();</div><div class="line"></div><div class="line">var array1 = [1, 2, 3, 4, 5];</div><div class="line">//num1 = 1; num2 = 2</div><div class="line">var [num1. num2] = array1;</div><div class="line">//num1 = 3; num2 = 4</div><div class="line">var [,,num1,num2] = array1;</div><div class="line">//num1 = 1; args = [2, 3, 4, 5]  </div><div class="line">var [num1, ...args] = array1;</div></pre></td></tr></table></figure>
+</li>
 </ol>
+<h2 id="TypeScript元组"><a href="#TypeScript元组" class="headerlink" title="TypeScript元组"></a>TypeScript元组</h2><p>在我看来元组解释特殊的数组，元组里的数据类型可以不一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var mytuple = [10,&quot;Runoob&quot;]; // 创建元组</div><div class="line">console.log(mytuple[0]) ; //10</div><div class="line">console.log(mytuple[1]); //Runoob</div><div class="line">mytuple[0] = 100;// 更新元组元素</div><div class="line">console.log(mytuple[0]) ; //100</div><div class="line">mytuple.push(12);//增加元组元素</div><div class="line">mytuple.pop();//12删除元素</div><div class="line">var [b, c] = mytuple;// b = 10, b= Runoob</div></pre></td></tr></table></figure></p>
+<p>## </p>
 
       
     </div>
@@ -771,7 +773,7 @@ price: 100
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript和JavaScript"><span class="nav-number">1.</span> <span class="nav-text">TypeScript和JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的基础语法"><span class="nav-number">2.</span> <span class="nav-text">TypeScript的基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TypeScript的一些语法特性"><span class="nav-number">2.0.1.</span> <span class="nav-text">TypeScript的一些语法特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的基础类型"><span class="nav-number">3.</span> <span class="nav-text">TypeScript的基础类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的变量声明"><span class="nav-number">4.</span> <span class="nav-text">TypeScript的变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的运算符、条件语句、循环、Number、String、Array同JS无区别"><span class="nav-number">5.</span> <span class="nav-text">TypeScript的运算符、条件语句、循环、Number、String、Array同JS无区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的函数"><span class="nav-number">6.</span> <span class="nav-text">TypeScript的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TS的函数参数与JS不同"><span class="nav-number">6.0.1.</span> <span class="nav-text">TS的函数参数与JS不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数新特性"><span class="nav-number">6.0.2.</span> <span class="nav-text">函数新特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript元组"><span class="nav-number">7.</span> <span class="nav-text">TypeScript元组</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript和JavaScript"><span class="nav-number">1.</span> <span class="nav-text">TypeScript和JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的基础语法"><span class="nav-number">2.</span> <span class="nav-text">TypeScript的基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的基础类型"><span class="nav-number">3.</span> <span class="nav-text">TypeScript的基础类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的变量声明"><span class="nav-number">4.</span> <span class="nav-text">TypeScript的变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的运算符"><span class="nav-number">5.</span> <span class="nav-text">TypeScript的运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript的函数"><span class="nav-number">6.</span> <span class="nav-text">TypeScript的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TS的函数参数与JS不同"><span class="nav-number">6.0.1.</span> <span class="nav-text">TS的函数参数与JS不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数新特性"><span class="nav-number">6.0.2.</span> <span class="nav-text">函数新特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript元组"><span class="nav-number">7.</span> <span class="nav-text">TypeScript元组</span></a></li></ol></div>
             
 
           </div>
