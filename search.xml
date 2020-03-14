@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[WebPack]]></title>
       <url>%2F2020%2F03%2F13%2F15.WebPack%2F</url>
-      <content type="text"><![CDATA[转载和借鉴：作者：秉持本心链接：https://www.jianshu.com/p/1192cfd4a012]]></content>
+      <content type="text"><![CDATA[webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有： 减少了页面的衍生请求次数，提高网站效率 将ES6等高级语法进行转化编译，以兼容浏览器 打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有 入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻找依赖 输出： outpur: 一个对象，包含两个属性: path: 打包的目标文件夹；filename: 打包后的文件名称 加载器：Loader: webpack本身只能识别js文件，如果要加载非js文件我们需要只当额外的加载器，常用的有babel转码器可以将ES6,ES7,JSX,等高级语法转化为浏览器支持的ES5。loader的配置项（卸载rules[]中）有: test: 必须项，以匹配loaders所处理文件的扩展名的正则表达式loader: 必须项，loader的名称，一般放到use对象中include/exclude: 可选项，手动添加必须处理或者不处理的文件夹。query: 可选项，为loader提供额外的设置选项 插件： plugins：数组可选项，为webpack添加插件一个完整的webpack.config.js如下12345678910111213141516171819202122232425262728293031323334353637modudle.export = &#123; mode: &quot;development&quot;, devtool: &apos;eval-source-map&apos;, devServer: &#123; contentBase: &quot;./common&quot;, historyApiFallback: true, inline: true &#125;, entry: __dirname + &quot;/app/main.js&quot;, output: &#123; path: __dirname + &quot;/common&quot;, filename: &quot;index.js&quot; &#125;, module: &#123; rules: [ &#123; test: /(\.jsx|\.js)$/, use: &#123; loader: &quot;babel-loader&quot;, &#125;, exclude: /node_modules/ &#125;, &#123; test: /\.css$/, exclude: /node_modules/, use: [ &#123; loader: &quot;style-loader&quot; &#125;, &#123; loader: &quot;css-loader&quot; &#125; ] &#125; ] &#125;&#125; 转载和借鉴：作者：秉持本心链接：https://www.jianshu.com/p/1192cfd4a012]]></content>
     </entry>
 
     

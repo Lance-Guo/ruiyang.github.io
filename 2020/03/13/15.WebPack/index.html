@@ -105,16 +105,31 @@
 
 
 
-<meta name="description" content="转载和借鉴：作者：秉持本心链接：https://www.jianshu.com/p/1192cfd4a012">
+<meta name="description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：
+
+减少了页面的衍生请求次数，提高网站效率
+将ES6等高级语法进行转化编译，以兼容浏览器
+打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
+入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebPack">
 <meta property="og:url" content="https://guoruiyang.cn/2020/03/13/15.WebPack/index.html">
 <meta property="og:site_name" content="宝盛道吉">
-<meta property="og:description" content="转载和借鉴：作者：秉持本心链接：https://www.jianshu.com/p/1192cfd4a012">
-<meta property="og:updated_time" content="2020-03-13T12:05:36.476Z">
+<meta property="og:description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：
+
+减少了页面的衍生请求次数，提高网站效率
+将ES6等高级语法进行转化编译，以兼容浏览器
+打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
+入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻">
+<meta property="og:updated_time" content="2020-03-14T11:40:51.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebPack">
-<meta name="twitter:description" content="转载和借鉴：作者：秉持本心链接：https://www.jianshu.com/p/1192cfd4a012">
+<meta name="twitter:description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：
+
+减少了页面的衍生请求次数，提高网站效率
+将ES6等高级语法进行转化编译，以兼容浏览器
+打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
+入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻">
 
 
 
@@ -406,7 +421,24 @@
       
 
       
-        <p>转载和借鉴：<br>作者：秉持本心<br>链接：<a href="https://www.jianshu.com/p/1192cfd4a012" target="_blank" rel="external">https://www.jianshu.com/p/1192cfd4a012</a></p>
+        <p>webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：</p>
+<ol>
+<li>减少了页面的衍生请求次数，提高网站效率</li>
+<li>将ES6等高级语法进行转化编译，以兼容浏览器</li>
+<li>打包的同时将代码混淆，提高代码安全性<br>webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有</li>
+<li>入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻找依赖</li>
+<li>输出： outpur: 一个对象，包含两个属性:<blockquote>
+<p>path: 打包的目标文件夹；<br>filename: 打包后的文件名称</p>
+</blockquote>
+</li>
+<li>加载器：Loader: webpack本身只能识别js文件，如果要加载非js文件我们需要只当额外的加载器，常用的有babel转码器可以将ES6,ES7,JSX,等高级语法转化为浏览器支持的ES5。loader的配置项（卸载rules[]中）有:<blockquote>
+<p>test: 必须项，以匹配loaders所处理文件的扩展名的正则表达式<br>loader: 必须项，loader的名称，一般放到use对象中<br>include/exclude: 可选项，手动添加必须处理或者不处理的文件夹。<br>query: 可选项，为loader提供额外的设置选项</p>
+</blockquote>
+</li>
+<li>插件： plugins：数组可选项，为webpack添加插件<br>一个完整的webpack.config.js如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">modudle.export = &#123;</div><div class="line">    mode: &quot;development&quot;,</div><div class="line">    devtool: &apos;eval-source-map&apos;,</div><div class="line">    devServer: &#123;</div><div class="line">        contentBase: &quot;./common&quot;,</div><div class="line">        historyApiFallback: true,</div><div class="line">        inline: true</div><div class="line">    &#125;,</div><div class="line">    entry: __dirname + &quot;/app/main.js&quot;,</div><div class="line">    output: &#123;</div><div class="line">        path: __dirname + &quot;/common&quot;,</div><div class="line">        filename: &quot;index.js&quot;</div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        rules: [</div><div class="line">            &#123;</div><div class="line">                test: /(\.jsx|\.js)$/,</div><div class="line">                use: &#123;</div><div class="line">                    loader: &quot;babel-loader&quot;,</div><div class="line">                &#125;,</div><div class="line">                exclude: /node_modules/</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                test: /\.css$/,</div><div class="line">                exclude: /node_modules/,</div><div class="line">                use: [</div><div class="line">                    &#123;</div><div class="line">                        loader: &quot;style-loader&quot;</div><div class="line">                    &#125;,</div><div class="line">                    &#123;</div><div class="line">                        loader: &quot;css-loader&quot;</div><div class="line">                    &#125;</div><div class="line">                ]</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>转载和借鉴：<br>作者：秉持本心<br>链接：<a href="https://www.jianshu.com/p/1192cfd4a012" target="_blank" rel="external">https://www.jianshu.com/p/1192cfd4a012</a></p>
 
       
     </div>
