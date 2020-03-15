@@ -105,31 +105,37 @@
 
 
 
-<meta name="description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：
+<meta name="description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好处有：
 
 减少了页面的衍生请求次数，提高网站效率
 将ES6等高级语法进行转化编译，以兼容浏览器
-打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
-入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻">
+打包的同时将代码混淆，提高代码安全性
+
+webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
+入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebPack">
 <meta property="og:url" content="https://guoruiyang.cn/2020/03/13/15.WebPack/index.html">
 <meta property="og:site_name" content="宝盛道吉">
-<meta property="og:description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：
+<meta property="og:description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好处有：
 
 减少了页面的衍生请求次数，提高网站效率
 将ES6等高级语法进行转化编译，以兼容浏览器
-打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
-入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻">
-<meta property="og:updated_time" content="2020-03-14T11:40:51.174Z">
+打包的同时将代码混淆，提高代码安全性
+
+webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
+入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文">
+<meta property="og:updated_time" content="2020-03-15T02:21:40.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebPack">
-<meta name="twitter:description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：
+<meta name="twitter:description" content="webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好处有：
 
 减少了页面的衍生请求次数，提高网站效率
 将ES6等高级语法进行转化编译，以兼容浏览器
-打包的同时将代码混淆，提高代码安全性webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
-入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻">
+打包的同时将代码混淆，提高代码安全性
+
+webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有
+入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文">
 
 
 
@@ -421,17 +427,19 @@
       
 
       
-        <p>webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好出有：</p>
+        <p>webpack是一个打包工具，可以将JS，CSS， image等资源当成一个个模块进行打包。打包的好处有：</p>
 <ol>
 <li>减少了页面的衍生请求次数，提高网站效率</li>
 <li>将ES6等高级语法进行转化编译，以兼容浏览器</li>
-<li>打包的同时将代码混淆，提高代码安全性<br>webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有</li>
+<li>打包的同时将代码混淆，提高代码安全性</li>
+</ol>
+<h5 id="webpack-的核心都写在他的配置文件webpack-config-js中，具体的属性有"><a href="#webpack-的核心都写在他的配置文件webpack-config-js中，具体的属性有" class="headerlink" title="webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有"></a>webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有</h5><ol>
 <li>入口：entry: 打包的起点，一个或者多个。一般是一个js文件，从该文件寻找依赖</li>
 <li>输出： outpur: 一个对象，包含两个属性:<blockquote>
 <p>path: 打包的目标文件夹；<br>filename: 打包后的文件名称</p>
 </blockquote>
 </li>
-<li>加载器：Loader: webpack本身只能识别js文件，如果要加载非js文件我们需要只当额外的加载器，常用的有babel转码器可以将ES6,ES7,JSX,等高级语法转化为浏览器支持的ES5。loader的配置项（卸载rules[]中）有:<blockquote>
+<li>加载器：Loader: webpack本身只能识别js文件，如果要加载非js文件我们需要只当额外的加载器，常用的有babel转码器可以将ES6,ES7,JSX,等高级语法转化为浏览器支持的ES5。loader的配置项（写在rules[]中）有:<blockquote>
 <p>test: 必须项，以匹配loaders所处理文件的扩展名的正则表达式<br>loader: 必须项，loader的名称，一般放到use对象中<br>include/exclude: 可选项，手动添加必须处理或者不处理的文件夹。<br>query: 可选项，为loader提供额外的设置选项</p>
 </blockquote>
 </li>
@@ -481,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/16/9.常见排序算法的JS实现/" rel="next" title="常见排序算法的JS实现">
-                <i class="fa fa-chevron-left"></i> 常见排序算法的JS实现
+              <a href="/2020/03/13/14.TypeScript/" rel="next" title="TypeScript">
+                <i class="fa fa-chevron-left"></i> TypeScript
               </a>
             
           </div>
@@ -490,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/03/13/14.TypeScript/" rel="prev" title="TypeScript">
-                TypeScript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -627,6 +640,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack-的核心都写在他的配置文件webpack-config-js中，具体的属性有"><span class="nav-number">1.</span> <span class="nav-text">webpack 的核心都写在他的配置文件webpack.config.js中，具体的属性有</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
