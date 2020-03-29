@@ -135,7 +135,7 @@ Mixin
 Await
 
 从ES6反移植来的：类、模块、lambda函数的箭头语法、可选参数">
-<meta property="og:updated_time" content="2020-03-17T11:08:37.931Z">
+<meta property="og:updated_time" content="2020-03-17T11:36:53.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript">
 <meta name="twitter:description" content="TypeScript和JavaScriptTypeScript 是JavaScript 的一个超集，支持ES6标准TypeScript的实际目标是开发大型应用，他可以编译成纯的JavaScriptTypeScript增加的功能有：
@@ -568,6 +568,9 @@ Await
 <li><p>destructuring析构表达式<br>通过destructuring表达式将对象或数组拆解成任意数量的变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//返回一个对象</div><div class="line">function getStock()&#123;</div><div class="line">    return &#123;</div><div class="line">        code: &quot;IBM&quot;,</div><div class="line">        price: 100,</div><div class="line">        other: 123</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 等同于var a = getStock(); a.code=&quot;IBM&quot;; a.price=100;</div><div class="line">var &#123;code, price&#125; = getStock();</div><div class="line">//错误</div><div class="line">var &#123;codex, price&#125; = getStock();</div><div class="line">//正确 codex的值就是code的值</div><div class="line">var &#123;code: codex, price&#125; = getStock();</div><div class="line"></div><div class="line">var array1 = [1, 2, 3, 4, 5];</div><div class="line">//num1 = 1; num2 = 2</div><div class="line">var [num1. num2] = array1;</div><div class="line">//num1 = 3; num2 = 4</div><div class="line">var [,,num1,num2] = array1;</div><div class="line">//num1 = 1; args = [2, 3, 4, 5]  </div><div class="line">var [num1, ...args] = array1;</div></pre></td></tr></table></figure>
 </li>
+<li><p>箭头表达式<br>通过=&gt; 箭头表达式来声明匿名函数，消除了传统匿名函数中this指针的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function getSockt(name:string)&#123;</div><div class="line">    this.name = name;</div><div class="line">    setInterval(function()&#123;</div><div class="line">        console.log(&quot;my name is &quot; + this.name);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div><div class="line">function getSockt2(name:string)&#123;</div><div class="line">    this.name = name;</div><div class="line">    setInterval(() =&gt; &#123;</div><div class="line">        console.log(&quot;my name is &quot; + this.name); </div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div><div class="line">//调用getSockt(&quot;IBM&quot;)函数输出my name is </div><div class="line">var stock = new getSockt(&quot;IBM&quot;);</div><div class="line">//调用getSockt2(&quot;IBM&quot;)函数输出my name is IBM</div><div class="line">var stock2 = new getSockt2(&quot;IBM&quot;);</div></pre></td></tr></table></figure>
+</li>
 </ol>
 <h2 id="TypeScript元组"><a href="#TypeScript元组" class="headerlink" title="TypeScript元组"></a>TypeScript元组</h2><p>在我看来元组解释特殊的数组，元组里的数据类型可以不一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var mytuple = [10,&quot;Runoob&quot;]; // 创建元组</div><div class="line">console.log(mytuple[0]) ; //10</div><div class="line">console.log(mytuple[1]); //Runoob</div><div class="line">mytuple[0] = 100;// 更新元组元素</div><div class="line">console.log(mytuple[0]) ; //100</div><div class="line">mytuple.push(12);//增加元组元素</div><div class="line">mytuple.pop();//12删除元素</div><div class="line">var [b, c] = mytuple;// b = 10, b= Runoob</div></pre></td></tr></table></figure></p>
 <h2 id="TypeScript联合类型"><a href="#TypeScript联合类型" class="headerlink" title="TypeScript联合类型"></a>TypeScript联合类型</h2><p>联合类型就是给一个变量设置多种类型，通过|管道符来实现<br>语法格式： Type1|type2|type3<br>var valu:string|number;<br>var arr: string[] | number[];</p>
@@ -728,7 +731,7 @@ Await
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -739,7 +742,7 @@ Await
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -750,7 +753,7 @@ Await
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
